@@ -14,4 +14,7 @@ export class FactureService {
   getFacture(id:number){
     return this.http.get(this.baseUrl+"facture/retrieve-facture/"+id);
   }
+  addFacture(data:any){
+    return this.http.post(this.baseUrl+'facture/',data);
+}
 }

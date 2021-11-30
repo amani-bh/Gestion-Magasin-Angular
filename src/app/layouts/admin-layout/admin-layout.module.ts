@@ -6,8 +6,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
-
 
 @NgModule({
   declarations: [
@@ -15,11 +16,15 @@ import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
     ListeFacturesComponent,
     SidebarComponent,
     NavbarComponent,
-    ListeStocksComponent
+    ListeStocksComponent,
+    ListeDetailFacturesComponent
+
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    AdminLayoutRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminLayoutModule { }

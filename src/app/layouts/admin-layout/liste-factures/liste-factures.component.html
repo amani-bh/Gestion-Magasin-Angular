@@ -30,7 +30,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Liste des factures</h4>
-                    
+                    <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <thead>
@@ -72,11 +72,7 @@
                             <td>
                               <a> <i class="icon-reorder"></i></a>
                             </td>
-                          </tr>
-                         
-                           
-                           
-                          
+                          </tr>    
                         </tbody>
                       </table>
                     </div>
@@ -87,6 +83,56 @@
               
               
             </div>
+            <div class="col-12 grid-margin" *ngIf="show==true">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter Facture</h4>
+                  <form #f="ngForm" class="form-sample">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Montant Remise</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="montantRemise" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">montant Facture</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="montantFacture" ngModel />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Client</label>
+                          <div class="col-sm-9">
+                            <select class="form-control">
+                              <option>Male</option>
+                              <option>Female</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">date Facture</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" type="date" placeholder="dd/mm/yyyy" name="dateFacture" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+                  </form>
+                </div>
+              </div>
+            </div>
+            
           </div>
           
         </div>
