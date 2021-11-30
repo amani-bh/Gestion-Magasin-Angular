@@ -13,6 +13,7 @@ import { FactureService } from 'src/app/services/FactureService/facture.service'
 })
 export class ListeFacturesComponent implements OnInit {
   list:any=[];
+  show:boolean=false;
   constructor(private service:FactureService) { }
 
   ngOnInit(): void {
@@ -22,5 +23,13 @@ export class ListeFacturesComponent implements OnInit {
       }
       );
   }
-
+showForm(){
+  if(this.show==false){
+    this.show=true;
+  }
+else this.show=false;
+}
+ajouter(f:any){
+console.log(f);
+}
 }

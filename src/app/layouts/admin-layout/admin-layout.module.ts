@@ -6,18 +6,22 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ListeFacturesComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListeDetailFacturesComponent
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    AdminLayoutRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminLayoutModule { }
