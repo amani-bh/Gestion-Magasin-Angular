@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockService } from 'src/app/services/StockService/stock.service';
 
 @Component({
   selector: 'app-liste-stocks',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-stocks.component.css']
 })
 export class ListeStocksComponent implements OnInit {
-
-  constructor() { }
+  list: any = [];
+  constructor(private service: StockService) { }
 
   ngOnInit(): void {
+    this.service.listeStocks().subscribe(
+      (d) => {
+        this.list = d;
+      }
+    );
   }
 
 }
