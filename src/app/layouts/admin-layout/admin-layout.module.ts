@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     DashboardComponent,
     ListeFacturesComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListeStocksComponent
   ],
   imports: [
     CommonModule,
