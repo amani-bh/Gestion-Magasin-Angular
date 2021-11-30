@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ClientLayoutModule } from './layouts/client-layout/client-layout.module';
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
     ClientLayoutModule,
     AdminLayoutModule,
     AuthLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

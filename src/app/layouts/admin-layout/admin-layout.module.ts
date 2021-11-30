@@ -7,6 +7,8 @@ import { ListeFacturesComponent } from './liste-factures/liste-factures.componen
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 
 
 @NgModule({
@@ -15,11 +17,15 @@ import { ListeclientsComponent } from './listeclients/listeclients.component';
     ListeFacturesComponent,
     SidebarComponent,
     NavbarComponent,
-    ListeclientsComponent
+    ListeclientsComponent,
+    ListeDetailFacturesComponent,
+
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    AdminLayoutRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminLayoutModule { }

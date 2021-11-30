@@ -1,0 +1,159 @@
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+   
+  
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+  </head>
+  
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <app-navbar></app-navbar>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+    
+        <!-- partial -->
+        <!-- partial:../../partials/_sidebar.html -->
+        <app-sidebar></app-sidebar>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Liste Detail facture</h4>
+                    <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
+                    
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>
+                              Id
+                            </th>
+                            <th>
+                            Produit
+                            </th>
+                            <th>
+                            Quantite
+                            </th>
+                            <th>
+                             Prix total
+                            </th>
+                            <th>
+                            Pourcentage Remise
+                            </th>
+                            <th>
+                            Montant Remise
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let facture of list">
+                                <td >
+                                 {{facture.idDetailFacture}}
+                                </td>
+                                <td>
+                                    {{facture.produit}}
+                                  </td>
+                                <td>
+                                  {{facture.qte}}
+                                </td>
+                                <td>
+                                  {{facture.prixTotal}}
+                                </td>
+                                <td>
+                                  {{facture.pourcentageRemise}}
+                                </td>
+                                <td>
+                                  {{facture.montantRemise}}
+                                </td>
+                                <td>
+                                    {{facture.createdAt}}
+                                  </td>
+                                <td>
+                                  <a> <i class="icon-reorder"></i></a>
+                                </td>
+                              </tr>
+                         
+                           
+                           
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              
+              
+            </div>
+            <div class="col-8 grid-margin" *ngIf="show==true">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Ajouter Detail Facture</h4>
+                    <form #f="ngForm" class="form-sample">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Quantite</label>
+                            <div class="col-sm-9">
+                              <input type="number" class="form-control" name="qte" ngModel/>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Produit</label>
+                            <div class="col-sm-9">
+                              <select class="form-control">
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                       
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">pourcentageRemise</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="pourcentageRemise" ngModel/>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </body>
+  
+  
+  
