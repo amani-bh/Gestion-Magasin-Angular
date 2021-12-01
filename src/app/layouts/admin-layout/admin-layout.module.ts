@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListeFacturesComponent,
     SidebarComponent,
     NavbarComponent,
+    ListeStocksComponent,
     ListeDetailFacturesComponent
+
   ],
   imports: [
     CommonModule,
