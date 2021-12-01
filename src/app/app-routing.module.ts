@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/admin-layout/dashboard/dashboard.component';
 import { LoginComponent } from './layouts/auth-layout/login/login.component';
+import { HomeComponent } from './layouts/client-layout/home/home.component';
 import { ListeFacturesComponent } from './layouts/client-layout/liste-factures/liste-factures.component';
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
  // client
 {
   path:'',
-  component: ListeFacturesComponent,
+  component: HomeComponent,
   children:[
     {
       path:"",
