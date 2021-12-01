@@ -10,6 +10,7 @@ import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
+import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ListefournisseursComponent } from './listefournisseurs/listefournisseur
     ListeclientsComponent,
     ListeDetailFacturesComponent,
     ListefournisseursComponent,
+    ListeStocksComponent,
 
   ],
   imports: [
