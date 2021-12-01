@@ -4,10 +4,16 @@ import { ClientService } from 'src/app/services/ClientService/client.service';
 @Component({
   selector: 'app-listeclients',
   templateUrl: './listeclients.component.html',
-  styleUrls: ['./listeclients.component.css']
+  styleUrls: [
+    '../../../../assets/back/vendors/feather/feather.css',
+    '../../../../assets/back/vendors/ti-icons/css/themify-icons.css',
+    '../../../../assets/back/vendors/css/vendor.bundle.base.css',
+    '../../../../assets/back/css/vertical-layout-light/style.css'
+  ]
 })
 export class ListeclientsComponent implements OnInit {
   list:any=[];
+  show:boolean=false;
   constructor(private service:ClientService) { }
 
   ngOnInit(): void {
@@ -16,6 +22,12 @@ export class ListeclientsComponent implements OnInit {
         this.list=d;
       }
       );
+      console.log(this.list);
+  }
+  showForm(){
+    this.show=!this.show;
+  }
+  ajouter(f:any){
   }
 
 }

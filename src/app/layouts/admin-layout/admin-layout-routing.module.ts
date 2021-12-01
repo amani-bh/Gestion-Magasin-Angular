@@ -4,10 +4,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
+import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 
 const routes: Routes = [
   {path:"listeFacturesAdmin",component: ListeFacturesComponent},
   {path:"listeclientsadmin",component: ListeclientsComponent},
+  {path:"listefournisseur",component: ListefournisseursComponent},
   {path:"dashboard",component: DashboardComponent},
   {path:"listeDetailFactures",component: ListeDetailFacturesComponent}
 

@@ -29,7 +29,7 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Liste Clients</h4>
+                    <h4 class="card-title">Liste Fournisseur</h4>
                     <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
                     
                     <div class="table-responsive">
@@ -37,52 +37,26 @@
                        <thead>
                           <tr>
                             <th>
-                                idClient
+                                idFournisseur
                             </th>
                             <th>
-                                Nom
+                                Code
                             </th>
                             <th>
-                                Prenom
+                                Libelle
                             </th>
-                            <th>
-                                DateNaissance
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                            <th>
-                                CategorieClient
-                            </th>
-                            <th>
-                                Profession
-                            </th>
-
-                          </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let client of list">
+                          <tr *ngFor="let fournisseur of list">
                             <td >
-                             {{client.idClient}}
+                             {{fournisseur.idFournisseur}}
                             </td>
                             <td>
-                              {{client.nom}}
+                              {{fournisseur.code}}
                             </td>
                             <td>
-                              {{client.prenom}}
+                              {{fournisseur.libelle}}
                             </td>
-                            <td>
-                              {{client.dateNaissance}}
-                            </td>
-                            <td>
-                              {{client.email}}
-                            </td>
-                            <td>
-                                {{client.categorieClient}}
-                              </td>
-                              <td>
-                                {{client.profession}}
-                              </td>
                             <td>
                               <a> <i class="icon-reorder"></i></a>
                             </td>
@@ -101,7 +75,39 @@
               
               
             </div>
-          
+            <div class="col-8 grid-margin" *ngIf="show==true">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Ajouter Fournisseur</h4>
+                    <form #f="ngForm" class="form-sample">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">code</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="code" ngModel/>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                     
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">libelle</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="libelle" ngModel/>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                      <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+                    </form>
+                  </div>
+                </div>
+              </div>
           </div>
           
         </div>

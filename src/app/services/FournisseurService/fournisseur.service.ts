@@ -16,7 +16,7 @@ export class FournisseurService {
     return this.http.get(this.baseUrl+"retrieve-fournisseur/"+id);
   }
   deleteFournisseur(id:number){
-    return this.http.get(this.baseUrl+"fournisseur/remove-fournisseur/"+id);
+    return this.http.delete(this.baseUrl+"fournisseur/remove-fournisseur/"+id);
   }
   addFournisseur(data:any){
     return this.http.post(this.baseUrl+"fournisseur/add-fournisseur",data);

@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
+import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-deta
     NavbarComponent,
     ListeclientsComponent,
     ListeDetailFacturesComponent,
+    ListefournisseursComponent,
 
   ],
   imports: [

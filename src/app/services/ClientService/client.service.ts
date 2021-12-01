@@ -15,9 +15,9 @@ export class ClientService {
     return this.http.get(this.baseUrl+"client/retrieve-client/"+id);
   }
   deleteClient(id:number){
-    return this.http.get(this.baseUrl+"client/remove-client/"+id);
+    return this.http.delete(this.baseUrl+"client/remove-client/"+id);
   }
   addClient(data:any){
-    return this.http.post(this.baseUrl+"client/add-client",data);
+    return this.http.post(this.baseUrl+"client/add-client/",data);
   }
 }
