@@ -31,5 +31,17 @@ export class ListeStocksComponent implements OnInit {
   }
   ajouter(f: any) {
     console.log(f);
-  }
+    this.service.addStock(f).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
+    }
 }

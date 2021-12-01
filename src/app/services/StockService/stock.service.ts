@@ -15,7 +15,7 @@ export class StockService {
     return this.http.get(this.baseUrl + "stock/retrieve-stock/" + idStock);
   }
   addStock(data:any){
-    return this.http.post(this.baseUrl+'stock/',data);
+    return this.http.post(this.baseUrl+'stock/add-stock/',data);
   }
 
 }
