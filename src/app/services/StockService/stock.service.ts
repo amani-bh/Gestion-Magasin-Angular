@@ -11,8 +11,11 @@ export class StockService {
   listeStocks() {
     return this.http.get(this.baseUrl + "stock/retrieve-all-stocks");
   }
-  getstock(idStock: number) {
+  getStock(idStock: number) {
     return this.http.get(this.baseUrl + "stock/retrieve-stock/" + idStock);
+  }
+  addStock(data:any){
+    return this.http.post(this.baseUrl+'stock/',data);
   }
 
 }
