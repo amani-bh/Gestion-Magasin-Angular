@@ -45,9 +45,10 @@
                             <th>
                                 Libelle
                             </th>
+                           
                         </thead>
                         <tbody>
-                          <tr *ngFor="let fournisseur of list">
+                          <tr *ngFor="let fournisseur of list,let i=index">
                             <td >
                              {{fournisseur.idFournisseur}}
                             </td>
@@ -56,6 +57,12 @@
                             </td>
                             <td>
                               {{fournisseur.libelle}}
+                            </td>
+                            <td>
+                              <input type="submit" class="btn btn-outline-primary btn-fw" value="Update" (click)="showForm1(i)">
+                            </td>
+                            <td>
+                              <input type="submit" class="btn btn-outline-primary btn-fw" value="Delete" (click)="del(i)">
                             </td>
                             <td>
                               <a> <i class="icon-reorder"></i></a>
@@ -104,6 +111,45 @@
   
                       </div>
                       <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 grid-margin" *ngIf="show1==true">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Modifier Fournisseur</h4>
+                    <form #d="ngForm" class="form-sample">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">id</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="idFournisseur"    [(ngModel)]=Fournisseur.idFournisseur/>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">code</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="code"  [(ngModel)]=Fournisseur.code  />
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                     
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">libelle</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="libelle" [(ngModel)]=Fournisseur.libelle/>
+                            </div>
+                          </div>
+                        </div>
+  
+                      </div>
+                      <input class="add btn btn-primary todo-list-add-btn" type="submit" value="modifier" (click)="modifier(d.value)">
                     </form>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FournisseurService } from 'src/app/services/FournisseurService/fournisseur.service';
 import { fournisseur } from './fournisseur';
 
@@ -14,7 +14,9 @@ import { fournisseur } from './fournisseur';
 })
 export class ListefournisseursComponent implements OnInit {
   list:any=[];
+  Fournisseur:any=[];
   show:boolean=false;
+  show1:boolean=false;
   forn!:fournisseur;
   constructor(private service:FournisseurService) { }
 
@@ -28,6 +30,12 @@ export class ListefournisseursComponent implements OnInit {
   }
   showForm(){
     this.show=!this.show;
+  }
+  showForm1(i:any){
+    this.show1=!this.show1;
+    this.Fournisseur=this.list[i];
+    console.log(this.Fournisseur);
+    
   }
   ajouter(f:any){
 
@@ -44,8 +52,35 @@ this.service.addFournisseur(f).subscribe(
      console.log('complete');
    }
 );
- 
-
+  }
+  modifier(d:any){
+    console.log(d);
+    this.service.updateFournisseur(d).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
+  }
+  del(i:any){
+    this.service.deleteFournisseur(this.list[i].idFournisseur).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
   }
 
 }

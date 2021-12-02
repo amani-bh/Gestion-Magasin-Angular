@@ -21,4 +21,7 @@ export class FournisseurService {
   addFournisseur(data:any){
     return this.http.post(this.baseUrl+"fournisseur/add-fournisseur",data);
   }
+  updateFournisseur(data:any){
+    return this.http.put(this.baseUrl+"fournisseur/modify-fournisseur",data);
+  }
 }
