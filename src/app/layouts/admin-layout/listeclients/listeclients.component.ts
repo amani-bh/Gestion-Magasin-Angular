@@ -13,7 +13,9 @@ import { ClientService } from 'src/app/services/ClientService/client.service';
 })
 export class ListeclientsComponent implements OnInit {
   list:any=[];
+  clt:any=[];
   show:boolean=false;
+  show1:boolean=false;
   constructor(private service:ClientService) { }
 
   ngOnInit(): void {
@@ -27,7 +29,57 @@ export class ListeclientsComponent implements OnInit {
   showForm(){
     this.show=!this.show;
   }
-  ajouter(f:any){
+  showForm1(i:any){
+    this.show1=!this.show1;
+    this.clt=this.list[i];
+    console.log(this.clt);
+    
   }
+  ajouter(f:any){
+    this.show=!this.show;
+    console.log(f);
+    this.service.addClient(f).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
+  }
+  modifier(d:any){
+    this.show1=!this.show1;
+    console.log(d);
+    this.service.updateClient(d).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
+  }
+  del(i:any){
+   
+    this.service.deleteClient(this.list[i].idClient).subscribe(
+      (d)=>{
+        //console.log('good');
+         this.ngOnInit();
+       },
+       (error)=>{
+         console.log(error.stattus);
+       },
+       ()=>{
+         console.log('complete');
+       }
+    );
 
-}
+}}

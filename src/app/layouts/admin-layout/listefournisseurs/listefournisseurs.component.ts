@@ -17,7 +17,6 @@ export class ListefournisseursComponent implements OnInit {
   Fournisseur:any=[];
   show:boolean=false;
   show1:boolean=false;
-  forn!:fournisseur;
   constructor(private service:FournisseurService) { }
 
   ngOnInit(): void {
@@ -38,8 +37,8 @@ export class ListefournisseursComponent implements OnInit {
     
   }
   ajouter(f:any){
-
-console.log(f);
+    this.show=!this.show;
+    console.log(f);
 this.service.addFournisseur(f).subscribe(
   (d)=>{
     //console.log('good');
@@ -52,8 +51,10 @@ this.service.addFournisseur(f).subscribe(
      console.log('complete');
    }
 );
-  }
+console.log(this.show);
+}
   modifier(d:any){
+    this.show1=!this.show1;
     console.log(d);
     this.service.updateFournisseur(d).subscribe(
       (d)=>{
