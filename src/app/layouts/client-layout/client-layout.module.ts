@@ -6,6 +6,7 @@ import { ListeFacturesComponent } from './liste-factures/liste-factures.componen
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HomeComponent } from './home/home.component';
     ListeFacturesComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    DetailProduitComponent
   ],
   imports: [
     CommonModule,
