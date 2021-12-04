@@ -6,9 +6,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
+import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
+import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
+
 
 @NgModule({
   declarations: [
@@ -16,8 +19,10 @@ import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
     ListeFacturesComponent,
     SidebarComponent,
     NavbarComponent,
+    ListeclientsComponent,
+    ListeDetailFacturesComponent,
+    ListefournisseursComponent,
     ListeStocksComponent,
-    ListeDetailFacturesComponent
 
   ],
   imports: [

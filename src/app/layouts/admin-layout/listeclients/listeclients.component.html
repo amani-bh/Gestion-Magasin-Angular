@@ -1,0 +1,320 @@
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+   
+  
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+  </head>
+  
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <app-navbar></app-navbar>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+    
+        <!-- partial -->
+        <!-- partial:../../partials/_sidebar.html -->
+        <app-sidebar></app-sidebar>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Liste Clients</h4>
+                    <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
+                    
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                       <thead>
+                          <tr>
+                            <th>
+                                idClient
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+                            <th>
+                                Prenom
+                            </th>
+                            <th>
+                                DateNaissance
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                CategorieClient
+                            </th>
+                            <th>
+                                Profession
+                            </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let client of list,let i=index">
+                            <td >
+                             {{client.idClient}}
+                            </td>
+                            <td>
+                              {{client.nom}}
+                            </td>
+                            <td>
+                              {{client.prenom}}
+                            </td>
+                            <td>
+                              {{client.dateNaissance}}
+                            </td>
+                            <td>
+                              {{client.email}}
+                            </td>
+                            <td>
+                                {{client.categorieClient}}
+                              </td>
+                              <td>
+                                {{client.profession}}
+                              </td>
+                              <td>
+                                <input type="submit" class="btn btn-outline-primary btn-fw" value="Update" (click)="showForm1(i)">
+                              </td>
+                              <td>
+                                <input type="submit" class="btn btn-outline-primary btn-fw" value="Delete" (click)="del(i)">
+                              </td>
+                            <td>
+                              <a> <i class="icon-reorder"></i></a>
+                            </td>
+                          </tr>
+                         
+                           
+                           
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              
+              
+            </div>
+            <div class="col-8 grid-margin" *ngIf="show==true">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter Client</h4>
+                  <form #f="ngForm" class="form-sample">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Nom</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="nom" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Prenom</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="prenom" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Date de Naissance</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="dateNaissance" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="email" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" name="password" ngModel/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Categorie</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="categorieClient" id="categorieClient"  ngModel="Fidele">
+                              <option value="Fidele"  >Fidele</option>
+                              <option value="Ordinaire">Ordinaire</option>
+                              <option value="Premuim">Premuim</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Profession</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="profession" id="profession" ngModel="Autre">
+                              <option value="Docteur">Docteur</option>
+                              <option value="Ingenieur">Ingenieur</option>
+                              <option value="Etudiant">Etudiant</option>
+                              <option value="Commercial">Commercial</option>
+                              <option value="Cadre">Cadre</option>
+                              <option value="Autre">Autre</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 grid-margin" *ngIf="show1==true">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter Client</h4>
+                  <form #d="ngForm" class="form-sample">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Id</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="idClient" [(ngModel)]=clt.idClient/>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Nom</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="nom" [(ngModel)]=clt.nom/>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Prenom</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="prenom" [(ngModel)]=clt.prenom/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Date de Naissance</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="dateNaissance" [(ngModel)]=clt.dateNaissance/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="email" [(ngModel)]=clt.email/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" name="password" [(ngModel)]=clt.password/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Categorie</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="categorieClient" id="categorieClient"  [(ngModel)]=clt.categorieClient>
+                              <option value="Fidele"  >Fidele</option>
+                              <option value="Ordinaire">Ordinaire</option>
+                              <option value="Premuim">Premuim</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Profession</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="profession" id="profession"  [(ngModel)]=clt.profession>
+                              <option value="Docteur">Docteur</option>
+                              <option value="Ingenieur">Ingenieur</option>
+                              <option value="Etudiant">Etudiant</option>
+                              <option value="Commercial">Commercial</option>
+                              <option value="Cadre">Cadre</option>
+                              <option value="Autre">Autre</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="add btn btn-primary todo-list-add-btn" type="submit" value="Modifier" (click)="modifier(d.value)">
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </body>
+  
+  
+  
