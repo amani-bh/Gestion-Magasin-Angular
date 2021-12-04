@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PanierService } from 'src/app/services/PanierService/panier.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  list: any = [];
+  constructor(private service: PanierService) { }
 
   ngOnInit(): void {
-  }
 
+    this.service.getPanier(1).subscribe(
+      (d) => {
+        if (d == null) {
+          this.service.addPanier(1).subscribe();
+        }
+        else {
+          this.list = d;
+          console.log(this.list)
+        }
+
+      }
+
+    );
+  }
+  remove(idPa: any, idPr: any) {
+    this.service.removePanier(idPa, idPr).subscribe(
+      ()=>{
+        this.ngOnInit();
+      }
+    );
+  }
 }

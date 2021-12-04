@@ -20,6 +20,7 @@ export class ListeFacturesComponent implements OnInit {
     this.service.listeFactures().subscribe(
       (d) => {
         this.list=d;
+        console.log(d)
       }
       );
   }
