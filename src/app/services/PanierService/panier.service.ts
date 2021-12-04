@@ -17,4 +17,7 @@ export class PanierService {
 removePanier(idPanier:any,idProduit:any){
   return this.http.delete(this.baseUrl+"panier/remove-from-panier/"+idPanier+"/"+idProduit)
 }
+updatePanier(idPanier:any,idProduit:any){
+  return this.http.put(this.baseUrl+"panier/modify-panier/"+idPanier+"/"+idProduit,null)
+}
 }
