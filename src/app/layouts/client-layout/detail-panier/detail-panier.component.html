@@ -57,8 +57,8 @@
                                 </div>
                                 <!--/ End Input Order -->
                             </td>
-                            <td class="total-amount" data-title="Total"><span>$220.88</span></td>
-                            <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
+                            <td class="total-amount" data-title="Total"><span>{{produit.prixUnitaire}} Dt</span></td>
+                            <td class="action" data-title="Remove"><a (click)="remove(panier.idPanier,produit.idProduit)"><i class="ti-trash remove-icon"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,12 +76,10 @@
                                 <ul>
                                     <li>Total<span>{{panier.total}} DT</span></li>
                                     <li>Shipping<span>Free</span></li>
-                                    <li>You Save<span>$20.00</span></li>
-                                    <li class="last">You Pay<span>$310.00</span></li>
                                 </ul>
                                 <div class="button5">
-                                    <a href="#" class="btn">Payer</a>
-                                    <a href="#" class="btn">Continue shopping</a>
+                                    <div id="myPaypalButtons" ></div>  
+                                    <a [routerLink]="['/Home']"   class="btn">Continue shopping</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +91,7 @@
     </div>
 </div>
 <!--/ End Shopping Cart -->
-        
+      
 <!-- Start Shop Services Area  -->
 <section class="shop-services section">
     <div class="container">
