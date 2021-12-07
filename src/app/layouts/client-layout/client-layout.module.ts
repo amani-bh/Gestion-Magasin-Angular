@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { DetailPanierComponent } from './detail-panier/detail-panier.component';
+import { FactureComponent } from './facture/facture.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DetailPanierComponent } from './detail-panier/detail-panier.component';
     FooterComponent,
     HomeComponent,
     DetailProduitComponent,
-    DetailPanierComponent
+    DetailPanierComponent,
+    FactureComponent
   ],
   imports: [
     CommonModule,

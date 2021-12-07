@@ -14,7 +14,7 @@ export class DetailFactureService {
   listeDetailFacture(){
     return this.http.get(this.baseUrl+"/detailFacture/retrieve-all-detailFactures");
   }
-  addDetailFacture(data:any,d:number,d2:number){
-    return this.http.post(this.baseUrl+'detailFacture/add-detailfacture/'+d+'/'+d2,data);
+  addDetailFacture(data:any,idP:any,idF:any){
+    return this.http.post(this.baseUrl+'detailFacture/add-detailfacture/'+idP+'/'+idF,data);
 }
 }

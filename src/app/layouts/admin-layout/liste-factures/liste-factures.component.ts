@@ -33,4 +33,7 @@ else this.show=false;
 ajouter(f:any){
 console.log(f);
 }
+showDetailF(f:any){
+  console.log("test"+f['idFacture'])
+}
 }
