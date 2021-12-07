@@ -32,7 +32,7 @@
                     <h4 class="card-title">Liste des factures</h4>
                     <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
                     <div class="table-responsive">
-                      <table class="table table-striped">
+                      <table class="table table-hover">
                         <thead>
                           <tr>
                             <th>
@@ -53,7 +53,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let facture of list">
+                          <tr *ngFor="let facture of list" (click)="showDetailF(facture)">
                             <td >
                              {{facture.idFacture}}
                             </td>
