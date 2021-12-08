@@ -30,7 +30,9 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Liste des factures</h4>
-                    <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showForm()">
+                      <i class="ti-plus"></i>
+                    </button>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>
@@ -53,12 +55,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let facture of list" (click)="showDetailF(facture)">
+                          <tr *ngFor="let facture of list; let i=index" (click)="showDetailF(facture,i)" [ngStyle]="{backgroundColor: 
+                            row==i && showListDf==true ? 'lightblue':'transparent'}">
                             <td >
                              {{facture.idFacture}}
                             </td>
                             <td>
-                              {{facture.client}}
+                              {{facture.client.nom}} {{facture.client.prenom}}
                             </td>
                             <td>
                               {{facture.montantFacture}}
@@ -69,9 +72,7 @@
                             <td>
                               {{facture.dateFacture}}
                             </td>
-                            <td>
-                              <a> <i class="icon-reorder"></i></a>
-                            </td>
+                            
                           </tr>    
                         </tbody>
                       </table>
@@ -83,6 +84,10 @@
               
               
             </div>
+            <div *ngIf="showListDf==true">
+            <app-detail-of-one-facture [idDF]="id" ></app-detail-of-one-facture>
+          </div>
+
             <div class="col-12 grid-margin" *ngIf="show==true">
               <div class="card">
                 <div class="card-body">
@@ -136,6 +141,7 @@
           </div>
           
         </div>
+        
       </div>
     </div>
   
