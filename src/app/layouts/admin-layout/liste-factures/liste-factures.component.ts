@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FactureService } from 'src/app/services/FactureService/facture.service';
 
 @Component({
@@ -12,8 +12,12 @@ import { FactureService } from 'src/app/services/FactureService/facture.service'
   ]
 })
 export class ListeFacturesComponent implements OnInit {
+
   list:any=[];
   show:boolean=false;
+  showListDf:boolean=false;
+  id:any;
+  row:any;
   constructor(private service:FactureService) { }
 
   ngOnInit(): void {
@@ -27,13 +31,21 @@ export class ListeFacturesComponent implements OnInit {
 showForm(){
   if(this.show==false){
     this.show=true;
+    this.showListDf=false
   }
 else this.show=false;
 }
 ajouter(f:any){
 console.log(f);
 }
-showDetailF(f:any){
-  console.log("test"+f['idFacture'])
+showDetailF(f:any, i:any){
+  if(this.showListDf==false){
+    this.showListDf=true;
+    this.row=i;
+    this.show=false;
+  }
+else this.showListDf=false;
+  console.log(f)
+  this.id=f['idFacture'];
 }
 }

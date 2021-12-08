@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
+import { DetailOfOneFactureComponent } from './detail-of-one-facture/detail-of-one-facture.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
     ListeDetailFacturesComponent,
     ListefournisseursComponent,
     ListeStocksComponent,
+    DetailOfOneFactureComponent,
 
   ],
   imports: [
