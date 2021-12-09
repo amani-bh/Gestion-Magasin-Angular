@@ -20,4 +20,7 @@ export class DetailFactureService {
   listeDfByIdFacture(idF: any) {
     return this.http.get(this.baseUrl + "detailFacture/retrieve-dfacture-facture/"+idF);
   }
+  deleteDetailFacture(id:any){
+    return this.http.delete(this.baseUrl+"detailFacture/delete-detailfacture/"+id)
+  }
 }
