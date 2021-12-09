@@ -61,13 +61,14 @@
                                     {{dfacture.createdAt}}
                                   </td>
                                 <td>
-                                    <button type="button" class="btn btn-inverse-danger btn-icon"  [ngStyle]="{'margin-right': '1em'}">
+                                    
+                                    <button type="button" class="btn btn-inverse-dark btn-icon" [ngStyle]="{'margin-right': '1em'}">
+                                        <i class="ti-pencil-alt"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-inverse-danger btn-icon" (click)="deleteDFacture(dfacture.idDetailFacture)" >
                                         <i class="ti-trash"></i>
                                       </button>
                             
-                                    <button type="button" class="btn btn-inverse-dark btn-icon">
-                                        <i class="ti-pencil-alt"></i>
-                                      </button>
                                 </td>
                               </tr>
 
