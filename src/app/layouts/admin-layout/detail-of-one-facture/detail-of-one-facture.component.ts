@@ -17,6 +17,7 @@ export class DetailOfOneFactureComponent implements OnInit {
   list: any = [];
   nb = "3em"
   show: boolean = false;
+  showADF: boolean = false;
   dFacture:any;
   constructor(private service: DetailFactureService, private serviceFacture: FactureService) { }
 
@@ -30,7 +31,7 @@ export class DetailOfOneFactureComponent implements OnInit {
   deleteDFacture(id: any) {
     this.service.deleteDetailFacture(id).subscribe(
       () => {
-        this.serviceFacture.calculerFacture(id, 1).subscribe(
+        this.serviceFacture.calculerFacture(this.idDF, 1).subscribe(
           () => this.ngOnInit()
         );
       }
@@ -41,4 +42,11 @@ export class DetailOfOneFactureComponent implements OnInit {
     this.show=!this.show;
     this.dFacture=dp;
   }
+  showFormAddDF(){
+    this.showADF=!this.showADF;
+  }
+
+  afterRecieveData(i:any){
+    this.list.push(i);
+    }
 }

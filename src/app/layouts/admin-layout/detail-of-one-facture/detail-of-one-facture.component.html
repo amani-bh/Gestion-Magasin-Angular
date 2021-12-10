@@ -4,7 +4,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Liste Detail facture</h4>
-                    <button type="button" class="btn btn-inverse-info btn-icon" [ngStyle]="{'margin-left': '90%'}">
+                    <button type="button" class="btn btn-inverse-info btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showFormAddDF()">
                         <i class="ti-plus"></i>
                       </button>
                     <div class="table-responsive">
@@ -80,7 +80,10 @@
               </div>
             </div>
             <div *ngIf="show==true">
-            <app-update-detail-produit [dFacture]="dFacture" [idDf]="idDF"></app-update-detail-produit>
+            <app-update-detail-facture [dFacture]="dFacture" [idDf]="idDF"></app-update-detail-facture>
+          </div>
+          <div *ngIf="showADF==true">
+            <app-add-detail-facture [idFacture]="idDF" (notif)="afterRecieveData($event)"></app-add-detail-facture>
           </div>
 
 
