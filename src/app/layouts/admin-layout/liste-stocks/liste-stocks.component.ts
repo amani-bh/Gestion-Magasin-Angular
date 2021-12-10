@@ -13,7 +13,10 @@ import { StockService } from 'src/app/services/StockService/stock.service';
 })
 export class ListeStocksComponent implements OnInit {
   list: any = [];
+  //stock:any=[];
   show: boolean = false;
+  show2:boolean=false;
+  s:any;
   constructor(private service: StockService) { }
 
   ngOnInit(): void {
@@ -22,12 +25,20 @@ export class ListeStocksComponent implements OnInit {
         this.list = d;
       }
     );
+    console.log(this.list);
   }
   showForm() {
-    if (this.show == false) {
-      this.show = true;
-    }
-    else this.show = false;
+    //if (this.show == false) {
+     // this.show = true;
+    //}
+    //else this.show = false;
+    this.show=!this.show;
+  }
+  showFormUpdate(i:any){
+    this.show2=!this.show2;
+    this.s=i;
+   // this.stock=this.list[i];
+    
   }
   ajouter(f: any) {
     console.log(f);
@@ -40,8 +51,27 @@ export class ListeStocksComponent implements OnInit {
          console.log(error.stattus);
        },
        ()=>{
-         console.log('complete');
+         console.log('Stock added successfully !');
        }
     );
-    }
+    console.log(this.show);
+    
+}
+
+
+
+delete(i:any){
+  console.log(i)
+  this.service.deleteStock(i).subscribe(
+    (d)=>{
+       this.ngOnInit();
+     },
+     (error)=>{
+       console.log(error.stattus);
+     },
+     ()=>{
+       console.log('delete stock successfully');
+     }
+  );
+}
 }
