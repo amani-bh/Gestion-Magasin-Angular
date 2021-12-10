@@ -6,10 +6,13 @@ import { ListeFacturesComponent } from './liste-factures/liste-factures.componen
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
+import { ListeproduitsComponent } from './listeproduits/listeproduits.component';
+
 
 const routes: Routes = [
   {path:"listeFacturesAdmin",component: ListeFacturesComponent},
   {path:"listeclientsadmin",component: ListeclientsComponent},
+  {path:"listeproduitsAdmin",component: ListeproduitsComponent},
   {path:"listefournisseur",component: ListefournisseursComponent},
   {path:"dashboard",component: DashboardComponent},
   {path:"listeDetailFactures",component: ListeDetailFacturesComponent},

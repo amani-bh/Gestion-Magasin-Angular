@@ -12,6 +12,10 @@ import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-deta
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
+import { ListeproduitsComponent } from './listeproduits/listeproduits.component';
+import { UpdateProduitComponent } from './update-produit/update-produit.component';
+import { DetailOfOneFactureComponent } from './detail-of-one-facture/detail-of-one-facture.component';
+import { UpdateDetailProduitComponent } from './update-detail-produit/update-detail-produit.component';
 
 
 @NgModule({
@@ -25,6 +29,11 @@ import { UpdateStockComponent } from './update-stock/update-stock.component';
     ListefournisseursComponent,
     ListeStocksComponent,
     UpdateStockComponent,
+    ListeproduitsComponent,
+    UpdateProduitComponent,
+    DetailOfOneFactureComponent,
+    UpdateDetailProduitComponent
+ 
 
   ],
   imports: [
