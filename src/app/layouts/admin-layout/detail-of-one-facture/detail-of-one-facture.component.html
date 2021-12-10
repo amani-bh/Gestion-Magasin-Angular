@@ -62,7 +62,7 @@
                                   </td>
                                 <td>
                                     
-                                    <button type="button" class="btn btn-inverse-dark btn-icon" [ngStyle]="{'margin-right': '1em'}">
+                                    <button type="button" class="btn btn-inverse-dark btn-icon" [ngStyle]="{'margin-right': '1em'}" (click)="showUpdateForm(dfacture)">
                                         <i class="ti-pencil-alt"></i>
                                       </button>
                                       <button type="button" class="btn btn-inverse-danger btn-icon" (click)="deleteDFacture(dfacture.idDetailFacture)" >
@@ -78,10 +78,10 @@
                   </div>
                 </div>
               </div>
-  
-              
-              
             </div>
+            <div *ngIf="show==true">
+            <app-update-detail-produit [dFacture]="dFacture" [idDf]="idDF"></app-update-detail-produit>
+          </div>
 
 
   
