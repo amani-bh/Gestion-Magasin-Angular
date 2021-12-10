@@ -23,4 +23,7 @@ export class DetailFactureService {
   deleteDetailFacture(id:any){
     return this.http.delete(this.baseUrl+"detailFacture/delete-detailfacture/"+id)
   }
+  updateDetailFacture(data:any,id:any){
+    return this.http.put(this.baseUrl+"detailFacture/modify-detailFacture/"+id,data)
+  }
 }
