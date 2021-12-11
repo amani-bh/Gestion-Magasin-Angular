@@ -1,0 +1,94 @@
+
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Liste Detail facture</h4>
+                    <button type="button" class="btn btn-inverse-info btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showFormAddDF()">
+                        <i class="ti-plus"></i>
+                      </button>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>
+                              Id
+                            </th>
+                            <th>
+                            Produit
+                            </th>
+                            <th>
+                            Quantite
+                            </th>
+                            <th>
+                             Prix total
+                            </th>
+                            <th>
+                            Pourcentage Remise
+                            </th>
+                            <th>
+                            Montant Remise
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dfacture of list" >
+                                <td >
+                                 {{dfacture.idDetailFacture}}
+                                </td>
+                                <td>
+                                    {{dfacture.produit.libelle}}
+                                  </td>
+                                <td>
+                                  {{dfacture.qte}}
+                                </td>
+                                <td>
+                                  {{dfacture.prixTotal}}
+                                </td>
+                                <td>
+                                  {{dfacture.pourcentageRemise}}
+                                </td>
+                                <td>
+                                  {{dfacture.montantRemise}}
+                                </td>
+                                <td>
+                                    {{dfacture.createdAt}}
+                                  </td>
+                                <td>
+                                    
+                                    <button type="button" class="btn btn-inverse-dark btn-icon" [ngStyle]="{'margin-right': '1em'}" (click)="showUpdateForm(dfacture)">
+                                        <i class="ti-pencil-alt"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-inverse-danger btn-icon" (click)="deleteDFacture(dfacture.idDetailFacture)" >
+                                        <i class="ti-trash"></i>
+                                      </button>
+                            
+                                </td>
+                              </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="show==true">
+            <app-update-detail-facture [dFacture]="dFacture" [idDf]="idDF"></app-update-detail-facture>
+          </div>
+          <div *ngIf="showADF==true">
+            <app-add-detail-facture [idFacture]="idDF" (notif)="afterRecieveData($event)"></app-add-detail-facture>
+          </div>
+
+
+  
+  
+  
+  
+  

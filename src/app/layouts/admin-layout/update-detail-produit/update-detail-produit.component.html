@@ -1,0 +1,27 @@
+<div class="col-md-6 grid-margin stretch-card" [ngStyle]="{'margin-left': '25%'}">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Ajouter Detail Facture</h4>
+        <form class="forms-sample" [formGroup]="formulaire" (ngSubmit)="update(formulaire.value)">
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Produit</label>
+            <select class="form-control" id="exampleFormControlSelect2" formControlName="produit" >
+              <option  *ngFor="let p of listP" [ngValue]="p" >{{p.libelle}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantité</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="quantité" formControlName="qte"value="dFacture.qte">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Pourcentage Remise</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="pourcentage remise" formControlName="pourcentageRemise" value="dFacture.pourcentageRemise">
+          </div>
+          
+          <button type="submit" class="btn btn-primary mr-2" >Modifier</button>
+          <button class="btn btn-light">Annuler</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

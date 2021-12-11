@@ -69,39 +69,34 @@
                     <div class="right-bar">
                         <!-- Search Form -->
                         <div class="sinlge-bar">
-                            <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            <a [routerLink]="['/DetailPanier']"  class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                         </div>
                         <div class="sinlge-bar">
-                            <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                            <a [routerLink]="['/DetailPanier']" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                         </div>
+
                         <div class="sinlge-bar shopping">
-                            <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+                            <a [routerLink]="['/DetailPanier']" class="single-icon"><i class="ti-bag"></i> <span class="total-count">{{list.nbr}}</span></a>
                             <!-- Shopping Item -->
                             <div class="shopping-item">
                                 <div class="dropdown-cart-header">
-                                    <span>2 Items</span>
-                                    <a href="#">View Cart</a>
+                                    <span>{{list.length}} Items</span>
+                                    <a [routerLink]="['/DetailPanier']">View Cart</a>
                                 </div>
                                 <ul class="shopping-list">
-                                    <li>
-                                        <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                    <li *ngFor="let item of list.listProduit">
+                                        <button class="remove" (click)="remove(list.idPanier,item.idProduit)"><i class="fa fa-remove"></i></button>
                                         <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                        <h4><a href="#">Woman Ring</a></h4>
-                                        <p class="quantity">1x - <span class="amount">$99.00</span></p>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                        <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                                        <h4><a href="#">Woman Necklace</a></h4>
-                                        <p class="quantity">1x - <span class="amount">$35.00</span></p>
+                                        <h4><a href="#">{{item.libelle}}</a></h4>
+                                        <p class="quantity"> <span class="amount">{{item.prixUnitaire}} DT</span></p>
                                     </li>
                                 </ul>
                                 <div class="bottom">
                                     <div class="total">
                                         <span>Total</span>
-                                        <span class="total-amount">$134.00</span>
+                                        <span class="total-amount">{{list.total}} DT</span>
                                     </div>
-                                    <a href="checkout.html" class="btn animate">Checkout</a>
+                                    <a [routerLink]="['/DetailPanier']" class="btn animate">Checkout</a>
                                 </div>
                             </div>
                             <!--/ End Shopping Item -->
@@ -174,13 +169,6 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">accessories</a></li>
-                                <li><a href="#">top 100 offer</a></li>
-                                <li><a href="#">sunglass</a></li>
-                                <li><a href="#">watch</a></li>
-                                <li><a href="#">man’s product</a></li>
-                                <li><a href="#">ladies</a></li>
-                                <li><a href="#">westrn dress</a></li>
-                                <li><a href="#">denim </a></li>
                             </ul>
                         </div>
                     </div>
@@ -191,7 +179,7 @@
                                 <div class="navbar-collapse">	
                                     <div class="nav-inner">	
                                         <ul class="nav main-menu menu navbar-nav">
-                                                <li class="active"><a href="#">Home</a></li>
+                                                <li class="active"><a [routerLink]="['/Home']" routerLinkActive="router-link-active" >Home</a></li>
                                                 <li><a href="#">Product</a></li>												
                                                 <li><a href="#">Service</a></li>
                                                 <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
