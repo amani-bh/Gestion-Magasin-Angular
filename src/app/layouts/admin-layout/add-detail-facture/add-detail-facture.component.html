@@ -11,7 +11,10 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Quantité</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="quantité" formControlName="qte"value="dFacture.qte">
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="quantité" formControlName="qte" value="dFacture.qte">
+            <!--<div *ngIf="f.['qte'].controls.qte.errors?.required" class="alert alert-danger" role="alert">
+                Champ obligatoire
+            </div>-->
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Pourcentage Remise</label>

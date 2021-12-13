@@ -31,6 +31,7 @@ export class DetailOfOneFactureComponent implements OnInit {
   deleteDFacture(id: any) {
     this.service.deleteDetailFacture(id).subscribe(
       () => {
+        //idClient
         this.serviceFacture.calculerFacture(this.idDF, 1).subscribe(
           () => this.ngOnInit()
         );

@@ -54,6 +54,7 @@ update(dp:any){
   this.service.updateDetailFacture(dp,this.idDf).subscribe(
     ()=>{
       console.log("update")
+      //idClient
       this.serviceFacture.calculerFacture(this.idDf, 2).subscribe(
         () => this.ngOnInit()
       );
