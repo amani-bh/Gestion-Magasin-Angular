@@ -1,0 +1,35 @@
+<app-header></app-header>
+<!-- Start Checkout -->
+<body class="js" style="margin-top: 10%;">
+<section class="shop checkout section">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-lg-4 col-12" *ngFor="let dFacture of list">
+                <div class="order-details">
+                    <!-- Order Widget -->
+                    <div class="single-widget">
+                        <h2>Detail Facture</h2>
+                        <div class="content">
+                            <div class="single-widget payement">
+                                <div class="content">
+                                    <img src="../../../../assets/front/images/550-750.jpg" alt="#">
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Montant<span>{{dFacture.prixTotal}}</span></li>
+                                <li>Montant Remise<span>{{dFacture.montantRemise}}</span></li>
+                                <li class="last">pourcentage remise<span>{{dFacture.pourcentageRemise}}</span></li>
+                                <li class="last">Quantite<span>{{dFacture.qte}}</span></li>
+                                <li class="last">Produit<span>{{dFacture.produit.libelle}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+      
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+<app-footer></app-footer>

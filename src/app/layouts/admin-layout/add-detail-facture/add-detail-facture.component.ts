@@ -34,6 +34,10 @@ export class AddDetailFactureComponent implements OnInit {
       }
     )
   }
+  /*get form(){
+    return this.f.controls;
+
+  }*/
   getproduit(){
     return this.f.get('produit')?.value ;
   }

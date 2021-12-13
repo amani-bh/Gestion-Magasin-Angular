@@ -1,4 +1,41 @@
 <app-header></app-header>
+<!-- Start Checkout -->
+<body class="js" style="margin-top: 10%;">
+<section class="shop checkout section">
+    <div class="container">
+        <div class="row"> 
+            <div class="inner" style="margin-left: 100%;">
+                <button class="btn" (click)="pdfAffReport(1)"><i class="fa fa-file-text-o" aria-hidden="true" ></i></button>
+            </div>
+            <div class="col-lg-4 col-12" *ngFor="let facture of list">
+                <div class="order-details">
+                    <!-- Order Widget -->
+                    <div class="single-widget">
+                        <h2>Facture</h2>
+                        <div class="content">
+                            <ul>
+                                <li>Montant<span>{{facture.montantFacture}}</span></li>
+                                <li>Montant Remise<span>{{facture.montantRemise}}</span></li>
+                                <li class="last">Date<span>{{facture.dateFacture}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+      
+                   
+                    <div class="single-widget get-button">
+                        <div class="content">
+                            <div class="button">
+                                <a [routerLink]="['/listeDetailFacture', facture.idFacture]" routerLinkActive="router-link-active"  class="btn">See Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<!--/ End Checkout -->
 
 
 <app-footer></app-footer>
