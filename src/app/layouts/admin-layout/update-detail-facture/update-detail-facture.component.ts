@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DetailFactureService } from 'src/app/services/DetailFactureService/detail-facture.service';
 import { FactureService } from 'src/app/services/FactureService/facture.service';
@@ -15,6 +15,7 @@ import { ProduitService } from 'src/app/services/ProduitService/produit.service'
   ]
 })
 export class UpdateDetailFactureComponent implements OnInit {
+@Output() notifUp=new EventEmitter<any>();
 @Input() dFacture:any;
 @Input() idDf !: any;
 listP:any;
@@ -54,8 +55,9 @@ update(dp:any){
   this.service.updateDetailFacture(dp,this.idDf).subscribe(
     ()=>{
       console.log("update")
+      //idClient
       this.serviceFacture.calculerFacture(this.idDf, 2).subscribe(
-        () => this.ngOnInit()
+        () => this.notifUp.emit()
       );
     }
   );

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FactureService } from 'src/app/services/FactureService/facture.service';
 
 @Component({
   selector: 'app-liste-factures',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-factures.component.css']
 })
 export class ListeFacturesComponent implements OnInit {
-
-  constructor() { }
+list:any=[];
+  constructor(private service:FactureService,private route:Router) { }
 
   ngOnInit(): void {
+    this.service.listFacturesByClient(1).subscribe(
+      (d)=>{
+        console.log(d)
+        this.list=d;
+      }
+    )
+  }
+  pdfReport(id: any) {
+    this.service.pdfReport(id).subscribe(res => {
+      var file = new Blob([res], { type: "application/pdf" });
+      var fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+      console.log("PDF Facture");
+    });
   }
 
 }
