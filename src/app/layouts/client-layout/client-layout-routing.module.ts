@@ -5,13 +5,17 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { FactureComponent } from './facture/facture.component';
 import { HomeComponent } from './home/home.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
+import { ListProduitComponent } from './list-produit/list-produit.component';
+
 
 const routes: Routes = [
   {path:'listeFactures', component:ListeFacturesComponent},
   {path:'Home', component:HomeComponent},
   {path:'DetailProduit', component:DetailProduitComponent},
   {path:'DetailPanier', component:DetailPanierComponent},
-  {path:'Facture', component:FactureComponent}
+  {path:'Facture', component:FactureComponent},
+  {path:'listProduit/:cat', component:ListProduitComponent}
+
 ];
 
 @NgModule({
