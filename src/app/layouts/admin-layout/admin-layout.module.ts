@@ -17,6 +17,7 @@ import { UpdateProduitComponent } from './update-produit/update-produit.componen
 import { DetailOfOneFactureComponent } from './detail-of-one-facture/detail-of-one-facture.component';
 import { UpdateDetailFactureComponent } from './update-detail-facture/update-detail-facture.component';
 import { AddDetailFactureComponent } from './add-detail-facture/add-detail-facture.component';
+import { ListeRayonComponent } from './liste-rayon/liste-rayon.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AddDetailFactureComponent } from './add-detail-facture/add-detail-factu
     UpdateProduitComponent,
     DetailOfOneFactureComponent,
     UpdateDetailFactureComponent,
-    AddDetailFactureComponent
+    AddDetailFactureComponent,
+    ListeRayonComponent
  
 
   ],
