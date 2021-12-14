@@ -8,6 +8,7 @@ import { ClientLayoutModule } from './layouts/client-layout/client-layout.module
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AuthLayoutModule } from './layouts/auth-layout/auth-layout.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthLayoutModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

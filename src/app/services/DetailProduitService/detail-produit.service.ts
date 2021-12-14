@@ -20,7 +20,7 @@ export class DetailProduitService {
   //adddetailProduit(){
     //return this.http.post(this.baseUrl+"detailProduit/add-dProduit/");
   //}
- // updatedetailProduit(){
-   // return this.http.put(this.baseUrl+"detailProduit/modify-dProduit");
-  //}
+  updatedetailProduit(data:any){
+    return this.http.put(this.baseUrl+"detailProduit/modify-detailproduit",data);
+  }
 }

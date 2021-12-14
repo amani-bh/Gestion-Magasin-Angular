@@ -13,6 +13,7 @@ import { ProduitService } from 'src/app/services/ProduitService/produit.service'
 export class ListeproduitsComponent implements OnInit {
 listeProduits : any=[]
 showUpdate:boolean=false;
+showAdd:boolean=false;
 p:any;
   constructor(private produitService:ProduitService) {
 
@@ -38,4 +39,10 @@ p:any;
     )
   }
 
+  showFormAdd(){
+    this.showAdd=!this.showAdd;
+  }
+  afterRecieveData(i:any){
+    this.listeProduits.push(i);
+    }
 }

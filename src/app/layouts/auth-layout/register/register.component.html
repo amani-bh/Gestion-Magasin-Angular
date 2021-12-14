@@ -1,0 +1,128 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" name="nom" [(ngModel)]="form.nom" required nom #nom="ngModel" />
+                <div class="alert alert-danger" *ngIf="nom.touched && nom.invalid">
+                    <div *ngIf="nom.errors?.['required']">
+                        * The nom field is required !
+                    </div>
+                    
+                </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input type="text" class="form-control" name="prenom" [(ngModel)]="form.prenom" required prenom #prenom="ngModel" />
+                <div class="alert alert-danger" *ngIf="prenom.touched && prenom.invalid">
+                    <div *ngIf="prenom.errors?.['required']">
+                        * The prenom field is required !
+                    </div>
+                    
+                </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" #username="ngModel" [(ngModel)]="form.username" required minlength="3" maxlength="20"/>
+        <div class="alert-danger" *ngIf="username.touched && username.invalid">
+          <div *ngIf="username.errors?.['required']">Username is required</div>
+          <div *ngIf="username.errors?.['minlength']">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="username.errors?.['maxlength']">
+            Username must be at most 20 characters
+          </div>
+        </div>
+      
+      </div>
+      <!-- "dateNaissance": "1997-09-02", -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                    <div *ngIf="email.errors?.['required']">
+                        * The email field is required !
+                    </div>
+                    <div *ngIf="email.errors?.['pattern']">
+                        * This email non valid ! form: nom@exemple.com
+                    </div>
+                </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password"  required  minlength="6" #password="ngModel" />
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors?.['required']">
+              * The Password field is required !
+          </div>
+          <div *ngIf="password.errors?.['minlength']">
+              *  Password must be at least 6 characters
+          </div>
+      </div>
+        </div>
+        
+      <div class="form-group">
+        <label for="dateNaissance">Date Naissance</label>
+        <input type="Date" class="form-control" name="dateNaissance" [(ngModel)]="form.dateNaissance" required dateNaissance #dateNaissance="ngModel" />
+                <div class="alert alert-danger" *ngIf="dateNaissance.touched && dateNaissance.invalid">
+                    <div *ngIf="dateNaissance.errors?.['required']">
+                        * The dateNaissance field is required !
+                    </div>
+                    
+                </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="categorieClient">Categorie Client</label>
+        <select class="form-control" name="categorieClient" id="categorieClient" [(ngModel)]="form.categorieClient" #categorieClient="ngModel" ngModel="Fidele" required >
+          <option value="Fidele"  >Fidele</option>
+          <option value="Ordinaire">Ordinaire</option>
+          <option value="Premuim">Premuim</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="categorieClient.touched && categorieClient.invalid">
+          <div *ngIf="categorieClient.errors?.['required']">
+              * The CategorieClient field is required !
+          </div>
+        </div>
+      </div>
+    
+    <div class="form-group">
+      <label for="profession">Profession</label>
+      <select class="form-control" name="profession" id="profession" #profession="ngModel" ngModel="Autre" required [(ngModel)]="form.profession" >
+        <option value="Docteur">Docteur</option>
+        <option value="Ingenieur">Ingenieur</option>
+        <option value="Etudiant">Etudiant</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Cadre">Cadre</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="profession.touched && profession.invalid">
+        <div *ngIf="profession.errors?.['required']">
+            * The Profession field is required !
+        </div>
+        
+    </div>
+    </div>
+      
+      
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Sign Up</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful"> Your registration is successful! </div>
+  </div>
+</div>

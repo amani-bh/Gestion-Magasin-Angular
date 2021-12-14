@@ -11,17 +11,29 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Quantité</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="quantité" formControlName="qte" value="dFacture.qte">
-            <!--<div *ngIf="f.['qte'].controls.qte.errors?.required" class="alert alert-danger" role="alert">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="quantité" formControlName="qte" value="dFacture.qte">
+            <div *ngIf="qte?.invalid && qte?.touched" class="alert alert-danger" role="alert">
+            <div *ngIf="qte?.errors?.['required']" >
                 Champ obligatoire
-            </div>-->
+            </div>
+            <div *ngIf="qte?.errors?.['pattern']" > mettre un nombre valide et superieur a 0</div>
           </div>
+        </div>
+
+
           <div class="form-group">
             <label for="exampleInputPassword1">Pourcentage Remise</label>
-            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="pourcentage remise" formControlName="pourcentageRemise" value="dFacture.pourcentageRemise">
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="pourcentage remise" formControlName="pourcentageRemise" value="dFacture.pourcentageRemise">
+            <div *ngIf="pourcentageRemise?.invalid && pourcentageRemise?.touched" class="alert alert-danger" role="alert">
+              <div *ngIf="pourcentageRemise?.errors?.['required']" >
+                  Champ obligatoire
+              </div>
+              <div *ngIf="pourcentageRemise?.errors?.['pattern']" > mettre un nombre valide entre 0 et 100</div>
+              <div *ngIf="pourcentageRemise?.errors?.['max']" > le nombre doit compris entre 0 et 100 </div>
+          </div>
           </div>
           
-          <button type="submit" class="btn btn-primary mr-2" >Ajouter</button>
+          <button type="submit" class="btn btn-primary mr-2" [disabled]="f.invalid">Ajouter</button>
           <button class="btn btn-light">Annuler</button>
         </form>
       </div>

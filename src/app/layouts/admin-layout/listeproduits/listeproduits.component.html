@@ -30,7 +30,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Liste Produits</h4>
-                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" >
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showFormAdd()" >
                       <i class="ti-plus"></i>
                     </button>
                     <div class="table-responsive">
@@ -67,7 +67,7 @@
                               {{produit.prixUnitaire}}
                             </td>
                             <td>
-                                <button type="button" class="btn btn-inverse-dark btn-icon"  (click)="showFormUpdate(produit)">
+                                <button type="button" class="btn btn-inverse-dark btn-icon" (click)="showFormUpdate(produit)">
                                   <i class="ti-pencil-alt"></i>
                                 </button>
                               </td>
@@ -93,8 +93,9 @@
               <div *ngIf="showUpdate==true">
              <app-update-produit [produit]="p"></app-update-produit>
             </div>
-              
-              
+            <div *ngIf="showAdd==true">
+              <app-add-produit (notif)="afterRecieveData($event)"></app-add-produit>
+            </div>
             </div>
           
           

@@ -1,0 +1,140 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Ajouter Client</h4>
+      <form #f="ngForm" class="form-sample">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Nom</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="nom" #nom="ngModel" ngModel required/>
+                <div class="alert alert-danger"*ngIf="nom.touched && nom.invalid">
+                                                        <div *ngIf="nom.errors?.['required']">
+                                                            * This field is required !
+                                                        </div>
+                                                    </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+       
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Prenom</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="prenom" #prenom="ngModel" ngModel required/>
+                <div class="alert alert-danger"*ngIf="prenom.touched && prenom.invalid">
+                    <div *ngIf="prenom.errors?.['required']">
+                        * This field is required !
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Date de Naissance</label>
+              <div class="col-sm-9">
+                <input type="date" class="form-control" name="dateNaissance" #dateNaissance="ngModel" ngModel required />
+                <div class="alert alert-danger"*ngIf="dateNaissance.touched && dateNaissance.invalid">
+                    <div *ngIf="nom.errors?.['required']">
+                        * This field is required !
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="userName" #userName="ngModel" minlength="5" ngModel required/>
+                  <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
+                    <div *ngIf="userName.errors?.['required']">
+                        * The userName field is required !
+                    </div>
+                    <div *ngIf="userName.errors?.['minlength']">
+                        * The userName must contains at min 5 caractére
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="email"  ngModel #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                    <div *ngIf="email.errors?.['required']">
+                        * The email field is required !
+                    </div>
+                    <div *ngIf="email.errors?.['pattern']">
+                        * This email non valid ! form: nom@exemple.com
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" name="password" #password="ngModel" minlength="5" ngModel required/>
+                <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                    <div *ngIf="password.errors?.['required']">
+                        * The password field is required !
+                    </div>
+                    <div *ngIf="password.errors?.['minlength']">
+                        * The password must contains at min 5 caractére
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Categorie</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="categorieClient" id="categorieClient"  ngModel="Fidele" required >
+                  <option value="Fidele"  >Fidele</option>
+                  <option value="Ordinaire">Ordinaire</option>
+                  <option value="Premuim">Premuim</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Profession</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="profession" id="profession" ngModel="Autre" required >
+                  <option value="Docteur">Docteur</option>
+                  <option value="Ingenieur">Ingenieur</option>
+                  <option value="Etudiant">Etudiant</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Cadre">Cadre</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+      </form>
+    </div>
+  </div>

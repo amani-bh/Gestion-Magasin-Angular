@@ -19,7 +19,7 @@ list:any=[];
       }
     )
   }
-  pdfAffReport(id: any) {
+  pdfReport(id: any) {
     this.service.pdfReport(id).subscribe(res => {
       var file = new Blob([res], { type: "application/pdf" });
       var fileURL = URL.createObjectURL(file);
