@@ -21,6 +21,6 @@ export class ClientService {
     return this.http.post(this.baseUrl+"client/add-client/",data);
   }
   updateClient(data:any){
-    return this.http.put(this.baseUrl+"/client/modify-client",data);
+    return this.http.put(this.baseUrl+"client/modify-client",data);
   }
 }

@@ -21,7 +21,7 @@ export class DetailPanierComponent implements OnInit {
     qte: "1",
     pourcentageRemise: "5"
   }
-  constructor(private service: PanierService, private factureService: FactureService, private dfService: DetailFactureService, private route: Router) {
+  constructor(private route:Router,private service: PanierService, private factureService: FactureService, private dfService: DetailFactureService) {
 
   }
 
@@ -65,6 +65,7 @@ export class DetailPanierComponent implements OnInit {
             }
             this.factureService.calculerFacture(this.facture['idFacture'], 1).subscribe(
               () => {
+                this.route.navigateByUrl('listeFactures')
                 console.log("calcule")
               }
             );

@@ -17,6 +17,7 @@ export class ListefournisseursComponent implements OnInit {
   Fournisseur:any=[];
   show:boolean=false;
   show1:boolean=false;
+  f:any;
   constructor(private service:FournisseurService) { }
 
   ngOnInit(): void {
@@ -28,47 +29,19 @@ export class ListefournisseursComponent implements OnInit {
       console.log(this.list);
   }
   showForm(){
+    this.show1=false;
     this.show=!this.show;
   }
   showForm1(i:any){
     this.show1=!this.show1;
+    this.show=false;
     this.Fournisseur=this.list[i];
     console.log(this.Fournisseur);
+    this.f=i;
     
   }
-  ajouter(f:any){
-    this.show=!this.show;
-    console.log(f);
-this.service.addFournisseur(f).subscribe(
-  (d)=>{
-    //console.log('good');
-     this.ngOnInit();
-   },
-   (error)=>{
-     console.log(error.stattus);
-   },
-   ()=>{
-     console.log('complete');
-   }
-);
-console.log(this.show);
-}
-  modifier(d:any){
-    this.show1=!this.show1;
-    console.log(d);
-    this.service.updateFournisseur(d).subscribe(
-      (d)=>{
-        //console.log('good');
-         this.ngOnInit();
-       },
-       (error)=>{
-         console.log(error.stattus);
-       },
-       ()=>{
-         console.log('complete');
-       }
-    );
-  }
+
+ 
   del(i:any){
     this.service.deleteFournisseur(this.list[i].idFournisseur).subscribe(
       (d)=>{
@@ -83,5 +56,12 @@ console.log(this.show);
        }
     );
   }
+  afterRecieveData(i:any){
+    this.list.push(i);
+    }
 
+    afterRecieveDataFromUpdate(i:any){
+      console.log("test");
+      this.ngOnInit();
+      }
 }

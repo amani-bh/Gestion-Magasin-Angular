@@ -1,0 +1,24 @@
+<div class="col-md-6 grid-margin stretch-card" [ngStyle]="{'margin-left': '25%'}">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Modifier Fournisseur</h4>
+        <form class="forms-sample" [formGroup]="formulaire" (ngSubmit)="update(formulaire.value)">
+          
+          <div class="form-group">
+            <label for="exampleInputEmail1">Code</label>
+           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="code" formControlName="code" value="F.code">
+           <small *ngIf="code?.invalid && code?.touched"  class="text-danger">Code is a required field</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Libelle</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="libelle" formControlName="libelle" value="F.libelle">
+            <small *ngIf="libelle?.invalid && libelle?.touched"  class="text-danger">libelle is a required field</small>
+          </div>
+          
+          <button type="submit" class="btn btn-primary mr-2" >Modifier</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  

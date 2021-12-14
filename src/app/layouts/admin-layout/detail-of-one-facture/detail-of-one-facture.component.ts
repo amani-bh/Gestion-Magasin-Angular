@@ -14,25 +14,43 @@ import { FactureService } from 'src/app/services/FactureService/facture.service'
 })
 export class DetailOfOneFactureComponent implements OnInit {
   @Input() idDF !: any;
-  list:any=[];
-  nb="3em"
-  constructor(private service:DetailFactureService,private serviceFacture:FactureService ){ }
+  list: any = [];
+  nb = "3em"
+  show: boolean = false;
+  showADF: boolean = false;
+  dFacture:any;
+  constructor(private service: DetailFactureService, private serviceFacture: FactureService) { }
 
   ngOnInit(): void {
     this.service.listeDfByIdFacture(this.idDF).subscribe(
-      (d)=>{
-        this.list=d;
+      (d) => {
+        this.list = d;
       }
     );
   }
-  deleteDFacture(id:any){
+  deleteDFacture(id: any) {
     this.service.deleteDetailFacture(id).subscribe(
-      ()=>{
-        this.serviceFacture.calculerFacture(id,1).subscribe(
-          ()=> this.ngOnInit()
+      () => {
+        //idClient
+        this.serviceFacture.calculerFacture(this.idDF, 1).subscribe(
+          () => this.ngOnInit()
         );
       }
     );
   }
 
+  showUpdateForm(dp:any){
+    this.show=!this.show;
+    this.dFacture=dp;
+  }
+  showFormAddDF(){
+    this.showADF=!this.showADF;
+  }
+
+  afterRecieveData(i:any){
+    this.list.push(i);
+    }
+    afterRecieveDataUpdate(i:any){
+      this.ngOnInit()
+      }
 }

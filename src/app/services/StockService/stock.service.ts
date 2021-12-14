@@ -17,5 +17,10 @@ export class StockService {
   addStock(data:any){
     return this.http.post(this.baseUrl+'stock/add-stock/',data);
   }
-
+  updateStock(data:any){
+    return this.http.put(this.baseUrl+"stock/modify-stock",data);
+  }
+  deleteStock(id:number){
+    return this.http.delete(this.baseUrl+"stock/remove-stock/"+id);
+  }
 }

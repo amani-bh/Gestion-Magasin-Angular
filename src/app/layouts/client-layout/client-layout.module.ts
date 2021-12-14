@@ -10,7 +10,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { DetailPanierComponent } from './detail-panier/detail-panier.component';
 import { FactureComponent } from './facture/facture.component';
 import { ListProduitComponent } from './list-produit/list-produit.component';
-
+import { ListDetailFacturesComponent } from './list-detail-factures/list-detail-factures.component';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ListProduitComponent } from './list-produit/list-produit.component';
     DetailPanierComponent,
     FactureComponent,
     ListProduitComponent,
-
+    ListDetailFacturesComponent
   ],
   imports: [
     CommonModule,
