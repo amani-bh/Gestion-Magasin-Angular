@@ -1,0 +1,43 @@
+<div class="col-8 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Ajouter Fournisseur</h4>
+        <form #f="ngForm" class="form-sample">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">code</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control"  name="code" required  #code="ngModel" ngModel/>
+                  <div class="alert alert-danger" *ngIf="code.touched && code.invalid">
+                    <div *ngIf="code.errors?.['required']">
+                        * The code field is required !
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+         
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">libelle</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="libelle" required  #libelle="ngModel"  ngModel/>
+                  <div class="alert alert-danger" *ngIf="libelle.touched && libelle.invalid">
+                    <div *ngIf="libelle.errors?.['required']">
+                        * The libelle field is required !
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
+        </form>
+      </div>
+    </div>
+  </div>

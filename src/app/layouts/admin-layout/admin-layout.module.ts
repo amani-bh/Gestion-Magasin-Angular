@@ -17,6 +17,9 @@ import { UpdateProduitComponent } from './update-produit/update-produit.componen
 import { DetailOfOneFactureComponent } from './detail-of-one-facture/detail-of-one-facture.component';
 import { UpdateDetailFactureComponent } from './update-detail-facture/update-detail-facture.component';
 import { AddDetailFactureComponent } from './add-detail-facture/add-detail-facture.component';
+import { AddClientComponent } from './add-client/add-client.component';
+import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
+import { UpdateFournisseurComponent } from './update-fournisseur/update-fournisseur.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { AddDetailFactureComponent } from './add-detail-facture/add-detail-factu
     UpdateProduitComponent,
     DetailOfOneFactureComponent,
     UpdateDetailFactureComponent,
-    AddDetailFactureComponent
+    AddDetailFactureComponent,
+    AddClientComponent,
+    AddFournisseurComponent,
+    UpdateFournisseurComponent
  
 
   ],

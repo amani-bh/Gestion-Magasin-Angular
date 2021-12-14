@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/ClientService/client.service';
 
+
 @Component({
   selector: 'app-listeclients',
   templateUrl: './listeclients.component.html',
@@ -28,29 +29,16 @@ export class ListeclientsComponent implements OnInit {
   }
   showForm(){
     this.show=!this.show;
+    this.show1=false;
   }
   showForm1(i:any){
+    this.show=false;
     this.show1=!this.show1;
     this.clt=this.list[i];
     console.log(this.clt);
     
   }
-  ajouter(f:any){
-    this.show=!this.show;
-    console.log(f);
-    this.service.addClient(f).subscribe(
-      (d)=>{
-        //console.log('good');
-         this.ngOnInit();
-       },
-       (error)=>{
-         console.log(error.stattus);
-       },
-       ()=>{
-         console.log('complete');
-       }
-    );
-  }
+  
   modifier(d:any){
     this.show1=!this.show1;
     console.log(d);
@@ -82,4 +70,8 @@ export class ListeclientsComponent implements OnInit {
        }
     );
 
-}}
+}
+afterRecieveData(i:any){
+  this.list.push(i);
+  }
+}
