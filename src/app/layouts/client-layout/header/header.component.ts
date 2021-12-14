@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PanierService } from 'src/app/services/PanierService/panier.service';
+import { RayonService } from 'src/app/services/RayonService/rayon.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { PanierService } from 'src/app/services/PanierService/panier.service';
 })
 export class HeaderComponent implements OnInit {
   list: any = [];
-  constructor(private service: PanierService) { }
+  listRayon : any =[];
+  constructor(private service: PanierService, private serviceRayon :RayonService) { }
 
   ngOnInit(): void {
+    this.serviceRayon.listeRayons().subscribe(
+      (d)=>this.listRayon=d
+    )
 
     this.service.getPanier(1).subscribe(
       (d) => {

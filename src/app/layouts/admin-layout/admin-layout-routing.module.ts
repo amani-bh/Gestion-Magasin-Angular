@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeDetailFacturesComponent } from './liste-detail-factures/liste-detail-factures.component';
 import { ListeFacturesComponent } from './liste-factures/liste-factures.component';
+import { ListeRayonComponent } from './liste-rayon/liste-rayon.component';
 import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"dashboard",component: DashboardComponent},
   {path:"listeDetailFactures",component: ListeDetailFacturesComponent},
   { path: "listeStocks", component: ListeStocksComponent },
+  { path: "listeRayon", component: ListeRayonComponent }
 
 ];
 

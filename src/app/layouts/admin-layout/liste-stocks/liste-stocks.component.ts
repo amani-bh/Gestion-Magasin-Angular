@@ -17,6 +17,7 @@ export class ListeStocksComponent implements OnInit {
   show: boolean = false;
   show2:boolean=false;
   s:any;
+  listStockWarn:any=[];
   constructor(private service: StockService) { }
 
   ngOnInit(): void {
@@ -25,13 +26,19 @@ export class ListeStocksComponent implements OnInit {
         this.list = d;
       }
     );
-    console.log(this.list);
+    
+    this.service.warnStock().subscribe(
+      (d)=>{
+        console.log(d)
+        this.listStockWarn=d;
+        if(this.listStockWarn.length>0){
+          alert(this.listStockWarn.length +" stock(s) ont une quantite insuffisante !")
+        }
+    }
+    )
+    console.log(this.listStockWarn);
   }
   showForm() {
-    //if (this.show == false) {
-     // this.show = true;
-    //}
-    //else this.show = false;
     this.show=!this.show;
   }
   showFormUpdate(i:any){
@@ -44,7 +51,6 @@ export class ListeStocksComponent implements OnInit {
     console.log(f);
     this.service.addStock(f).subscribe(
       (d)=>{
-        //console.log('good');
          this.ngOnInit();
        },
        (error)=>{

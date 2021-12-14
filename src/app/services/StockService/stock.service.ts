@@ -23,4 +23,7 @@ export class StockService {
   deleteStock(id:number){
     return this.http.delete(this.baseUrl+"stock/remove-stock/"+id);
   }
+  warnStock(){
+    return this.http.get(this.baseUrl + "stock/notif-stock");
+  }
 }
