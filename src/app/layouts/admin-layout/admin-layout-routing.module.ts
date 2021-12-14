@@ -7,6 +7,7 @@ import { ListeStocksComponent } from './liste-stocks/liste-stocks.component';
 import { ListeclientsComponent } from './listeclients/listeclients.component';
 import { ListefournisseursComponent } from './listefournisseurs/listefournisseurs.component';
 import { ListeproduitsComponent } from './listeproduits/listeproduits.component';
+import { ListeDetailProduitComponent } from './liste-detail-produit/liste-detail-produit.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path:"dashboard",component: DashboardComponent},
   {path:"listeDetailFactures",component: ListeDetailFacturesComponent},
   { path: "listeStocks", component: ListeStocksComponent },
+  { path:"listeDetailProduitAdmin,", component:ListeDetailProduitComponent},
+
 
 ];
 

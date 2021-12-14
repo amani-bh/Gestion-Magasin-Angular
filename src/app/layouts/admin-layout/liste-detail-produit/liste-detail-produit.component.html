@@ -29,8 +29,8 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Liste Produits</h4>
-                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showFormAdd()" >
+                    <h4 class="card-title">Liste Detail Produits</h4>
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" >
                       <i class="ti-plus"></i>
                     </button>
                     <div class="table-responsive">
@@ -38,41 +38,41 @@
                        <thead>
                           <tr>
                             <th>
-                                idProduit
+                                idDetail Produit
                             </th>
                             <th>
-                                Code
+                              Date Creation
                             </th>
                             <th>
-                                Libelle
+                              Derniere Modification
                             </th>
                             <th>
-                                att3
+                              Categorie Produit
                             </th>
                            
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let produit of listeProduits,let i=index">
+                          <tr *ngFor="let detailproduit of listeDetailProduits,let i=index">
                             <td >
-                             {{produit.idProduit}}
+                             {{detailproduit.idDetailProduit}}
                             </td>
                             <td>
-                              {{produit.code}}
+                              {{detailproduit.dateCreation}}
                             </td>
                             <td>
-                              {{produit.libelle}}
+                              {{detailproduit.DerniereModification}}
                             </td>
                             <td>
-                              {{produit.prixUnitaire}}
+                              {{detailproduit.categorieProduit}}
                             </td>
                             <td>
-                                <button type="button" class="btn btn-inverse-dark btn-icon" (click)="showFormUpdate(produit)">
+                                <button type="button" class="btn btn-inverse-dark btn-icon" (click)="showFormUpdate(detailproduit)">
                                   <i class="ti-pencil-alt"></i>
                                 </button>
                               </td>
                               <td>
-                                <button type="button" class="btn btn-inverse-danger btn-icon" (click)="deleteProduit(produit.idProduit)">
+                                <button type="button" class="btn btn-inverse-danger btn-icon" (click)="deleteDetailProduit(detailproduit.idDetailProduit)">
                                   <i class="ti-trash"></i>
                                 </button>
                               </td>
@@ -91,11 +91,10 @@
                 </div>
               </div>
               <div *ngIf="showUpdate==true">
-             <app-update-produit [produit]="p"></app-update-produit>
+            <!-- <app-update-produit [produit]="p"></app-update-produit>-->
             </div>
-            <div *ngIf="showAdd==true">
-              <app-add-produit (notif)="afterRecieveData($event)"></app-add-produit>
-            </div>
+              
+              
             </div>
           
           
