@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/admin-layout/dashboard/dashboard.component';
 import { LoginComponent } from './layouts/auth-layout/login/login.component';
+import { RegisterComponent } from './layouts/auth-layout/register/register.component';
 import { HomeComponent } from './layouts/client-layout/home/home.component';
 import { ListeFacturesComponent } from './layouts/client-layout/liste-factures/liste-factures.component';
 
+
 const routes: Routes = [
   //Auth
+  { path: 'register', component: RegisterComponent },
   {
     path:'',
     component: LoginComponent,

@@ -42,18 +42,25 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="#" class="signin-form">
+							<form #f="ngForm" action="#" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Username</label>
-			      			<input type="text" class="form-control" placeholder="Username" required>
+			      			<input type="text" class="form-control" placeholder="Username" required name="username" #username="ngModel" ngModel required />
+							  <div class="alert-danger" *ngIf="username.touched && username.invalid">
+								<div *ngIf="username.errors?.['required']">Username is required</div>
+							  </div>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Password</label>
-		              <input type="password" class="form-control" placeholder="Password" required>
+		              <input type="password" class="form-control" placeholder="Password" required name="password" #password="ngModel" ngModel required> 
+					  <div class="alert-danger" *ngIf="password.touched && password.invalid">
+						<div *ngIf="password.errors?.['required']">Password is required</div>
+					  </div>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+		            	<button type="submit" class="form-control btn btn-primary submit px-3"  (click)="accessApi(f.value)">Sign In</button>
 		            </div>
+					
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
 			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
@@ -65,7 +72,25 @@
 										<a href="#">Forgot Password</a>
 									</div>
 		            </div>
+					<div class="form-group">
+						<div
+						  class="alert alert-danger"
+						  role="alert"
+						  *ngIf="f.submitted && isLoginFailed"
+						>
+						  Login failed: {{ errorMessage }}
+						</div>
+					  </div>
 		          </form>
+				  <!-- <div  *ngIf="isLoggedIn">
+					<div  *ngIf="roles[0]=='ROLE_USER'">
+						Logged in as {{ roles[0] }}.
+					  </div>
+					  <div  *ngIf="roles[0]=='ROLE_ADMIN'">
+						Logged in as {{ roles[0] }}.
+					  </div>
+				  </div> -->
+				  
 		        </div>
 		      </div>
 				</div>

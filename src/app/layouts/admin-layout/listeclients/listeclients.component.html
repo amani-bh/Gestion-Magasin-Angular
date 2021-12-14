@@ -30,8 +30,9 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Liste Clients</h4>
-                    <input type="submit" class="btn btn-outline-primary btn-fw" value="Ajouter" (click)="showForm()">
-                    
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon" [ngStyle]="{'margin-left': '90%'}" (click)="showForm()">
+                      <i class="ti-plus"></i>
+                    </button>
                     <div class="table-responsive">
                       <table class="table table-striped">
                        <thead>
@@ -46,8 +47,12 @@
                                 Prenom
                             </th>
                             <th>
+                              Username
+                          </th>
+                            <th>
                                 DateNaissance
                             </th>
+                          
                             <th>
                                 Email
                             </th>
@@ -72,6 +77,9 @@
                               {{client.prenom}}
                             </td>
                             <td>
+                              {{client.userName}}
+                            </td>
+                            <td>
                               {{client.dateNaissance}}
                             </td>
                             <td>
@@ -84,10 +92,14 @@
                                 {{client.profession}}
                               </td>
                               <td>
-                                <input type="submit" class="btn btn-outline-primary btn-fw" value="Update" (click)="showForm1(i)">
+                                <button type="button" class="btn btn-inverse-dark btn-icon"  (click)="showForm1(i)">
+                                  <i class="ti-pencil-alt"></i>
+                                </button>
                               </td>
                               <td>
-                                <input type="submit" class="btn btn-outline-primary btn-fw" value="Delete" (click)="del(i)">
+                                <button type="button" class="btn btn-inverse-danger btn-icon" (click)="del(i)">
+                                <i class="ti-trash"></i>
+                              </button>
                               </td>
                             <td>
                               <a> <i class="icon-reorder"></i></a>
@@ -108,109 +120,24 @@
               
             </div>
             <div class="col-8 grid-margin" *ngIf="show==true">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Ajouter Client</h4>
-                  <form #f="ngForm" class="form-sample">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Nom</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nom" ngModel/>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                   
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Prenom</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="prenom" ngModel/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Date de Naissance</label>
-                          <div class="col-sm-9">
-                            <input type="date" class="form-control" name="dateNaissance" ngModel/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Email</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="email" ngModel/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Password</label>
-                          <div class="col-sm-9">
-                            <input type="password" class="form-control" name="password" ngModel/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Categorie</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" name="categorieClient" id="categorieClient"  ngModel="Fidele">
-                              <option value="Fidele"  >Fidele</option>
-                              <option value="Ordinaire">Ordinaire</option>
-                              <option value="Premuim">Premuim</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Profession</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" name="profession" id="profession" ngModel="Autre">
-                              <option value="Docteur">Docteur</option>
-                              <option value="Ingenieur">Ingenieur</option>
-                              <option value="Etudiant">Etudiant</option>
-                              <option value="Commercial">Commercial</option>
-                              <option value="Cadre">Cadre</option>
-                              <option value="Autre">Autre</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <input class="add btn btn-primary todo-list-add-btn" type="submit" value="ajouter" (click)="ajouter(f.value)">
-                  </form>
-                </div>
-              </div>
+              <app-add-client (notif)="afterRecieveData($event)"></app-add-client>
             </div>
             <div class="col-8 grid-margin" *ngIf="show1==true">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Ajouter Client</h4>
+                  <h4 class="card-title">Modifier Client</h4>
                   <form #d="ngForm" class="form-sample">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Id</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="idClient" [(ngModel)]=clt.idClient/>
+                            <input type="text" class="form-control" name="idClient" [(ngModel)]=clt.idClient #idClient="ngModel"  required/>
+                            <div class="alert alert-danger"*ngIf="idClient.touched && idClient.invalid">
+                              <div *ngIf="idClient.errors?.['required']">
+                                  * idClient field is required !
+                              </div>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -221,7 +148,12 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Nom</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nom" [(ngModel)]=clt.nom/>
+                            <input type="text" class="form-control" name="nom"  #nom="ngModel"  required [(ngModel)]=clt.nom/>
+                            <div class="alert alert-danger"*ngIf="nom.touched && nom.invalid">
+                              <div *ngIf="nom.errors?.['required']">
+                                  * nom field is required !
+                              </div>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -233,7 +165,12 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Prenom</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="prenom" [(ngModel)]=clt.prenom/>
+                            <input type="text" class="form-control" name="prenom" #prenom="ngModel"  required [(ngModel)]=clt.prenom/>
+                            <div class="alert alert-danger"*ngIf="prenom.touched && prenom.invalid">
+                              <div *ngIf="prenom.errors?.['required']">
+                                  * prenom field is required !
+                              </div>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -243,7 +180,27 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Date de Naissance</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" name="dateNaissance" [(ngModel)]=clt.dateNaissance/>
+                            <input type="date" class="form-control" name="dateNaissance" #dateNaissance="ngModel"  required [(ngModel)]=clt.dateNaissance/>
+                            <div class="alert alert-danger"*ngIf="dateNaissance.touched && dateNaissance.invalid">
+                              <div *ngIf="dateNaissance.errors?.['required']">
+                                  * dateNaissance field is required !
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Username</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="userName" [(ngModel)]=clt.userName #userName="ngModel"  required />
+                            <div class="alert alert-danger"*ngIf="userName.touched && userName.invalid">
+                              <div *ngIf="userName.errors?.['required']">
+                                  * userName field is required !
+                              </div>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -253,7 +210,15 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Email</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="email" [(ngModel)]=clt.email/>
+                            <input type="text" class="form-control" name="email" [(ngModel)]=clt.email  #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                                <div *ngIf="email.errors?.['required']">
+                                    * The email field is required !
+                                </div>
+                                <div *ngIf="email.errors?.['pattern']">
+                                    * This email non valid ! form: nom@exemple.com
+                                </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -263,7 +228,15 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="password" class="form-control" name="password" [(ngModel)]=clt.password/>
+                            <input type="password" class="form-control" name="password" [(ngModel)]=clt.password #password="ngModel" minlength="5" ngModel required/>
+                            <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                                <div *ngIf="password.errors?.['required']">
+                                    * The password field is required !
+                                </div>
+                                <div *ngIf="password.errors?.['minlength']">
+                                    * The password must contains at min 5 caractére
+                                </div>
+                            </div>
                           </div>
                         </div>
                       </div>
