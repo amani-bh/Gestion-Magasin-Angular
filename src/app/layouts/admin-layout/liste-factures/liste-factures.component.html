@@ -116,9 +116,8 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Client</label>
                           <div class="col-sm-9">
-                            <select class="form-control">
-                              <option>Male</option>
-                              <option>Female</option>
+                            <select class="form-control" name="client" ngModel>
+                              <option *ngFor="let client of listClient" [ngValue]="client">{{client.nom}}</option>
                             </select>
                           </div>
                         </div>

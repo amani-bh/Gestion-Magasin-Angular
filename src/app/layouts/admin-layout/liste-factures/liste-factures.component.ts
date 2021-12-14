@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ClientService } from 'src/app/services/ClientService/client.service';
 import { FactureService } from 'src/app/services/FactureService/facture.service';
 
 @Component({
@@ -14,11 +15,12 @@ import { FactureService } from 'src/app/services/FactureService/facture.service'
 export class ListeFacturesComponent implements OnInit {
 
   list:any=[];
+  listClient:any=[];
   show:boolean=false;
   showListDf:boolean=false;
   id:any;
   row:any;
-  constructor(private service:FactureService) { }
+  constructor(private service:FactureService,private serviceClient:ClientService) { }
 
   ngOnInit(): void {
     this.service.listeFactures().subscribe(
@@ -27,6 +29,9 @@ export class ListeFacturesComponent implements OnInit {
         console.log(d)
       }
       );
+      this.serviceClient.listeClients().subscribe(
+        (d)=>this.listClient=d
+      )
   }
 showForm(){
   if(this.show==false){
@@ -36,7 +41,9 @@ showForm(){
 else this.show=false;
 }
 ajouter(f:any){
-console.log(f);
+this.service.addFacture(f).subscribe(
+  (d)=>this.ngOnInit()
+)
 }
 showDetailF(f:any, i:any){
   if(this.showListDf==false){

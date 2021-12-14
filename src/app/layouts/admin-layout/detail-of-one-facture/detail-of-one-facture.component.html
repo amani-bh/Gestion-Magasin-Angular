@@ -80,7 +80,7 @@
               </div>
             </div>
             <div *ngIf="show==true">
-            <app-update-detail-facture [dFacture]="dFacture" [idDf]="idDF"></app-update-detail-facture>
+            <app-update-detail-facture [dFacture]="dFacture" [idDf]="idDF" (notifUp)="afterRecieveDataUpdate($event)"></app-update-detail-facture>
           </div>
           <div *ngIf="showADF==true">
             <app-add-detail-facture [idFacture]="idDF" (notif)="afterRecieveData($event)"></app-add-detail-facture>
