@@ -50,4 +50,7 @@ export class DetailOfOneFactureComponent implements OnInit {
   afterRecieveData(i:any){
     this.list.push(i);
     }
+    afterRecieveDataUpdate(i:any){
+      this.ngOnInit()
+      }
 }

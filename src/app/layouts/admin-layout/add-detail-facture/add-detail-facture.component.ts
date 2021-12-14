@@ -21,8 +21,8 @@ export class AddDetailFactureComponent implements OnInit {
   detail:any;
   f=this.fb.group({
     produit:['',Validators.required],
-    qte:['',Validators.required],
-    pourcentageRemise:['',Validators.required]
+    qte:['',[Validators.required,Validators.pattern('[1-9]+$'),Validators.min(1)]],
+    pourcentageRemise:['',[Validators.required,Validators.pattern('[0-9]+$'),Validators.min(0),Validators.max(100)]]
     
   });
   constructor(private fb:FormBuilder,private service:DetailFactureService,private serviceProduit:ProduitService, private serviceFacture: FactureService) { }
@@ -34,17 +34,17 @@ export class AddDetailFactureComponent implements OnInit {
       }
     )
   }
-  /*get form(){
+  get form(){
     return this.f.controls;
 
-  }*/
+  }
   getproduit(){
     return this.f.get('produit')?.value ;
   }
-  getqte(){
+  get qte(){
     return this.f.get('qte');
   }
-  getpourcentageRemise(){
+  get pourcentageRemise(){
     return this.f.get('pourcentageRemise');
   }
   ajouter(df:any){
