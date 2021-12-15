@@ -33,9 +33,10 @@ this.p=d;
       this.detail=this.p['detailProduit'];
       this.detail['categorieProduit']=this.categorie;
       console.log(this.detail)
+      this.notif.emit(d);
       this.serviceDetail.updatedetailProduit(this.detail).subscribe(
         (data)=>{
-          this.notif.emit(d);
+         
         }
       );
 

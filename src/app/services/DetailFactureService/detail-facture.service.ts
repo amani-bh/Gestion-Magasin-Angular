@@ -12,7 +12,7 @@ export class DetailFactureService {
     return this.http.get(this.baseUrl + "dash-prix-date");
   }
   listeDetailFacture() {
-    return this.http.get(this.baseUrl + "/detailFacture/retrieve-all-detailFactures");
+    return this.http.get(this.baseUrl + "detailFacture/retrieve-all-detailFactures");
   }
   addDetailFacture(data: any, idP: any, idF: any) {
     return this.http.post(this.baseUrl + 'detailFacture/add-detailfacture/' + idP + '/' + idF, data);
@@ -27,6 +27,6 @@ export class DetailFactureService {
     return this.http.put(this.baseUrl+"detailFacture/modify-detailFacture/"+id,data)
   }
   getDetailFacture(id:any){
-    return this.http.get(this.baseUrl + "/detailFacture/retrieve-detail-facture/"+id);
+    return this.http.get(this.baseUrl + "detailFacture/retrieve-detail-facture/"+id);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FactureService } from 'src/app/services/FactureService/facture.service';
+import { TokenStorageService } from 'src/app/services/JwtClient/token-storage.service';
 
 @Component({
   selector: 'app-liste-factures',
@@ -9,10 +10,10 @@ import { FactureService } from 'src/app/services/FactureService/facture.service'
 })
 export class ListeFacturesComponent implements OnInit {
 list:any=[];
-  constructor(private service:FactureService,private route:Router) { }
+  constructor(private service:FactureService,private route:Router,private  user:TokenStorageService) { }
 
   ngOnInit(): void {
-    this.service.listFacturesByClient(1).subscribe(
+    this.service.listFacturesByClient(this.user.getUser()['id']).subscribe(
       (d)=>{
         console.log(d)
         this.list=d;
@@ -20,7 +21,7 @@ list:any=[];
     )
   }
   pdfReport(id: any) {
-    this.service.pdfReport(id).subscribe(res => {
+    this.service.pdfReport(this.user.getUser()['id']).subscribe(res => {
       var file = new Blob([res], { type: "application/pdf" });
       var fileURL = URL.createObjectURL(file);
       window.open(fileURL);

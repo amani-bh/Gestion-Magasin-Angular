@@ -24,6 +24,6 @@ export class ProduitService {
     return this.http.put(this.baseUrl+"Produit/modify-produit/"+d+'/'+d2,data);
   }
   getProduitByCategorie(cat:any){
-    return this.http.get(this.baseUrl+"Produit/get-produit-by-categorie/"+cat);
+    return this.http.get(this.baseUrl+"Produit/get-produit-categorie/"+cat);
   }
 }

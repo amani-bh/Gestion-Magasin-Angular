@@ -16,9 +16,11 @@ import { ProduitService } from 'src/app/services/ProduitService/produit.service'
 })
 export class UpdateDetailFactureComponent implements OnInit {
 @Output() notifUp=new EventEmitter<any>();
+@Output() updateNotif=new EventEmitter<any>();
 @Input() dFacture:any;
 @Input() idDf !: any;
 listP:any;
+facture:any;
 formulaire=new FormGroup({
   idDetailFacture: new FormControl(),
   produit: new FormControl('',[Validators.required] ),
@@ -28,6 +30,9 @@ formulaire=new FormGroup({
   constructor(private service:DetailFactureService,private serviceProduit:ProduitService, private serviceFacture: FactureService) { }
 
   ngOnInit(): void {
+    this.serviceFacture.getFacture(this.idDf).subscribe(
+      (d)=>this.facture=d
+    )
     this.serviceProduit.listeProduits().subscribe(
       (d)=>{
         this.listP=d;
@@ -53,12 +58,13 @@ formulaire=new FormGroup({
 update(dp:any){
   console.log(dp)
   this.service.updateDetailFacture(dp,this.idDf).subscribe(
-    ()=>{
+    (d)=>{
+      () => this.updateNotif.emit(d)
       console.log("update")
       //idClient
-      this.serviceFacture.calculerFacture(this.idDf, 2).subscribe(
-        () => this.notifUp.emit()
-      );
+     /* this.serviceFacture.calculerFacture(this.idDf, this.facture['client']['idClient']).subscribe(
+        
+      );*/
     }
   );
 }

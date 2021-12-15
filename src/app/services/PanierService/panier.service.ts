@@ -12,7 +12,7 @@ export class PanierService {
     return this.http.get(this.baseUrl+"panier/retrieve-panier/"+id);
   }
   addPanier(id:any){
-    return this.http.post(this.baseUrl+'panier/'+id,null);
+    return this.http.post(this.baseUrl+'panier/add-panier/'+id,null);
 }
 removePanier(idPanier:any,idProduit:any){
   return this.http.delete(this.baseUrl+"panier/remove-from-panier/"+idPanier+"/"+idProduit)

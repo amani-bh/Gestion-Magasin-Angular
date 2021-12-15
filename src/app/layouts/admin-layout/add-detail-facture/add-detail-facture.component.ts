@@ -19,6 +19,7 @@ export class AddDetailFactureComponent implements OnInit {
   listP:any;
   produit:any;
   detail:any;
+  facture:any;
   f=this.fb.group({
     produit:['',Validators.required],
     qte:['',[Validators.required,Validators.pattern('[1-9]+$'),Validators.min(1)]],
@@ -28,6 +29,9 @@ export class AddDetailFactureComponent implements OnInit {
   constructor(private fb:FormBuilder,private service:DetailFactureService,private serviceProduit:ProduitService, private serviceFacture: FactureService) { }
 @Input() idFacture:any;
   ngOnInit(): void {
+    this.serviceFacture.getFacture(this.idFacture).subscribe(
+      (d)=>this.facture=d
+    )
     this.serviceProduit.listeProduits().subscribe(
       (d)=>{
         this.listP=d;
@@ -53,8 +57,8 @@ this.produit=this.getproduit();
       (data)=>{
         this.detail=data;
 
-        this.serviceFacture.calculerFacture(this.idFacture, 2).subscribe(
-          (d) =>{
+       // this.serviceFacture.calculerFacture(this.idFacture, this.facture['client']['idClient']).subscribe(
+        //  (d) =>{
             this.service.getDetailFacture(this.detail['idDetailFacture']).subscribe(
               (dfacture)=>{
                 console.log(dfacture)
@@ -64,8 +68,8 @@ this.produit=this.getproduit();
             )
            
 
-          } 
-        );
+         // } 
+        //);
       }
     );
   }
