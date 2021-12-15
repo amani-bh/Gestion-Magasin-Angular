@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'DetailProduit', component:DetailProduitComponent},
   {path:'DetailPanier', component:DetailPanierComponent},
   {path:'Facture', component:FactureComponent},
-  {path:'listProduit/:cat', component:ListProduitComponent}
+  {path:'listProduit/:cat', component:ListProduitComponent},
   {path:'listeDetailFacture/:id', component:ListDetailFacturesComponent}
 ];
 

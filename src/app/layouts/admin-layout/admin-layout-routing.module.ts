@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:"dashboard",component: DashboardComponent},
   {path:"listeDetailFactures",component: ListeDetailFacturesComponent},
   { path: "listeStocks", component: ListeStocksComponent },
-  { path: "listeRayon", component: ListeRayonComponent }
+  { path: "listeRayon", component: ListeRayonComponent },
   { path:"listeDetailProduitAdmin,", component:ListeDetailProduitComponent},
 
 ];

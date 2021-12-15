@@ -47,7 +47,7 @@ import { UpdateFournisseurComponent } from './update-fournisseur/update-fourniss
     AddDetailFactureComponent,
     ListeRayonComponent,
     AddRayonComponent,
-    UpdateRayonComponent
+    UpdateRayonComponent,
     AddClientComponent,
     AddFournisseurComponent,
     UpdateFournisseurComponent
