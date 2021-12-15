@@ -19,6 +19,9 @@ import { AddProduitComponent } from './add-produit/add-produit.component';
 import { DetailOfOneFactureComponent } from './detail-of-one-facture/detail-of-one-facture.component';
 import { UpdateDetailFactureComponent } from './update-detail-facture/update-detail-facture.component';
 import { AddDetailFactureComponent } from './add-detail-facture/add-detail-facture.component';
+import { ListeRayonComponent } from './liste-rayon/liste-rayon.component';
+import { AddRayonComponent } from './add-rayon/add-rayon.component';
+import { UpdateRayonComponent } from './update-rayon/update-rayon.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
 import { UpdateFournisseurComponent } from './update-fournisseur/update-fournisseur.component';
@@ -42,6 +45,9 @@ import { UpdateFournisseurComponent } from './update-fournisseur/update-fourniss
     DetailOfOneFactureComponent,
     UpdateDetailFactureComponent,
     AddDetailFactureComponent,
+    ListeRayonComponent,
+    AddRayonComponent,
+    UpdateRayonComponent
     AddClientComponent,
     AddFournisseurComponent,
     UpdateFournisseurComponent
