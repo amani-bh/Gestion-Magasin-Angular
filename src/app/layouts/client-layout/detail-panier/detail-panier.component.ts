@@ -4,6 +4,7 @@ import { render } from 'creditcardpayments/creditCardPayments';
 import { Router } from '@angular/router';
 import { FactureService } from 'src/app/services/FactureService/facture.service';
 import { DetailFactureService } from 'src/app/services/DetailFactureService/detail-facture.service';
+import { TokenStorageService } from 'src/app/services/JwtClient/token-storage.service';
 
 @Component({
   selector: 'app-detail-panier',
@@ -21,13 +22,13 @@ export class DetailPanierComponent implements OnInit {
     qte: "1",
     pourcentageRemise: "5"
   }
-  constructor(private route:Router,private service: PanierService, private factureService: FactureService, private dfService: DetailFactureService) {
+  constructor(private route:Router,private service: PanierService, private factureService: FactureService, private dfService: DetailFactureService, private user:TokenStorageService) {
 
   }
 
   ngOnInit(): void {
 
-    this.service.getPanier(1).subscribe(
+    this.service.getPanier(this.user.getUser()['id']).subscribe(
       (d) => {
         if (d == null) {
           console.log("panier vide")
@@ -48,7 +49,7 @@ export class DetailPanierComponent implements OnInit {
       onApprove: (details) => {
         alert('Transaction Successful');
         //this.route.navigateByUrl('Facture');
-        this.factureService.addFacture(1).subscribe(
+        this.factureService.addFacture(this.user.getUser()['id']).subscribe(
           (d) => {
             this.facture = d;
             for (let i of this.panier['listProduit']) {
@@ -63,12 +64,13 @@ export class DetailPanierComponent implements OnInit {
                 }
               );
             }
-            this.factureService.calculerFacture(this.facture['idFacture'], 1).subscribe(
+            this.route.navigateByUrl('listeFactures')
+            /*this.factureService.calculerFacture(this.facture['idFacture'], this.user.getUser()['id']).subscribe(
               () => {
-                this.route.navigateByUrl('listeFactures')
+              
                 console.log("calcule")
               }
-            );
+            );*/
 
           }
         );

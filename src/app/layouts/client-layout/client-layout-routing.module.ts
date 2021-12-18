@@ -16,7 +16,8 @@ const routes: Routes = [
   {path:'DetailPanier', component:DetailPanierComponent},
   {path:'Facture', component:FactureComponent},
   {path:'listProduit/:cat', component:ListProduitComponent},
-  {path:'listeDetailFacture/:id', component:ListDetailFacturesComponent}
+  {path:'listeDetailFacture/:id', component:ListDetailFacturesComponent},
+  
 ];
 
 @NgModule({

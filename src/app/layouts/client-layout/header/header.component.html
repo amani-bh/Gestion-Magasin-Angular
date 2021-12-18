@@ -175,10 +175,11 @@
                                                 <li class="active"><a [routerLink]="['/Home']" routerLinkActive="router-link-active" >Home</a></li>
                                                 <li><a href="#">Product</a></li>												
                                                 <li><a href="#">Service</a></li>
-                                                <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+                                                <li><a href="#">Categorie<i class="ti-angle-down"></i><span class="new">New</span></a>
                                                     <ul class="dropdown">
-                                                        <li><a href="cart.html">Cart</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
+                                                        <li><a  [routerLink]="['/listProduit', 'Alimentaire']">Alimentaire</a></li>
+                                                        <li><a [routerLink]="['/listProduit', 'Electromenager']">Electromenager</a></li>
+                                                        <li><a [routerLink]="['/listProduit', 'Quincaillerie']">Quincaillerie</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Pages</a></li>									
